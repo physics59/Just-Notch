@@ -1,0 +1,70 @@
+/* Key styling */
+
+.key {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border: solid 5px;
+  border-color: black;
+  border-radius: 10px;
+  scale: 0.9;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.key:hover {
+  background-color: whitesmoke;
+}
+
+.key::after {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  right: -9px;
+  bottom: -9px;
+  border: 5px solid white;
+  border-radius: 14px;
+  z-index: -2;
+}
+
+.key:hover::after {
+  border-color: whitesmoke;
+}
+
+/* Arrow (Within key) styling */
+
+.arrow {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.arrow2 {
+  width: 20px;
+  height: 5px;
+  border-radius: 3px;
+  background-color: black;
+  transform: rotate(40deg);
+ }
+
+.arrow3 {
+  margin-top: 6px;
+  transform: rotate(140deg);
+}
+
+/* Key container */
+
+.keycontain2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  width: 0px;
+}
+
+.bottom {align-self: end;}
+
+.keydown {margin-top: 6.5px; transform: rotate(90deg);}
+.keyup {transform: rotate(270deg);}
+.keyleft {transform: rotate(180deg);}
+.keyright {}
