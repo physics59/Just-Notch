@@ -6,7 +6,7 @@
     let time = 0;
     function resizeCanvas() {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = (window.innerHeight-50);
     }
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
@@ -44,21 +44,20 @@
       }
     }
     function loseGame() {
+      alert("You have been hit!");
+      resetMissile();
       keys.forEach(key => {
         key = false;
       });
-      alert("You have been hit!");
-      objects[1].x = 20;
-      objects[1].y = (canvas.height / 2);
-      objects[1].theta = 0;
-      objects[1].v = 0.01;
-      time = 0;
     }
     function winGame() {
-      for (let key of keys) {
-        key = 0
-      }
       alert("You evaded the Missile!");
+      resetMissile();
+      keys.forEach(key => {
+        key = false;
+      });
+    }
+    function resetMissile() {
       objects[1].x = 20;
       objects[1].y = (canvas.height / 2);
       objects[1].theta = 0;
