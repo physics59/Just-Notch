@@ -68,3 +68,6 @@
 .keyup {transform: rotate(270deg);}
 .keyleft {transform: rotate(180deg);}
 .keyright {}
+
+body { margin: 0; background: #65cbf3; }
+canvas { display: block; }
