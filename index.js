@@ -16,7 +16,7 @@ if (window.innerWidth > mobileWidth) {
   window.addEventListener('keyup', function (e) {
     keys[e.keyCode] = false;
   })
-  alert("desktop")
+  alert("Detected as desktop");
 } else {
   keys = new Array(41);
   document.getElementById("keyup").addEventListener('touchstart', function () { keys[40] = true; })
@@ -28,7 +28,7 @@ if (window.innerWidth > mobileWidth) {
   document.getElementById("keyleft").addEventListener('touchend', function () { keys[39] = false; })
   document.getElementById("keyright").addEventListener('touchend', function () { keys[37] = false; })
   document.getElementById("keydown").addEventListener('touchend', function () { keys[38] = false; })
-  alert("mobile");
+  alert("Detected as mobile");
 }
 const objects = [
   {
