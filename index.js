@@ -1,4 +1,4 @@
-let mobileWidth = 800;
+const isTouchOnly = window.matchMedia("(hover: none)").matches;
 let keys;
 let lastDirection = 0;
 let tgtDirection = 0;
@@ -8,7 +8,7 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 const missileCounter = document.getElementById('evasion');
 resizeCanvas();
-if (window.innerWidth > mobileWidth) {
+if (!isTouchOnly) {
   window.addEventListener('keydown', function (e) {
     keys = (keys || []);
     keys[e.keyCode] = true;
