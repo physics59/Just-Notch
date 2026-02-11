@@ -111,8 +111,8 @@ canvas {
  
 /*.keyright {}*/
 /* Turn off on larger displays */
-@media screen and (min-width: 800px) {
+/*@media screen and (min-width: 800px) {
   .keycontain2 {
     display: none;
   }
-}
+}*/
