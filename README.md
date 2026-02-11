@@ -1,1 +1,1 @@
-Just Notch is a missile evasion game I created a few weeks ago. This is the domain for it now, for public use. I have added missile guidance, and somewhat primitive kinematics for the missile and the plane.
+Just Notch is a missile evasion game I created a few weeks ago. This is the domain for it now, for public use. I have added missile guidance, and somewhat primitive kinematics for the missile and the plane. Mobile support is done, too.
