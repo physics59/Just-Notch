@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  background-color: rgb(65cbf3);
+  background-color: #65cbf3;
 }
  
 canvas {
   display: block;
+  background-color: #65cbf3;
 }
  
 /* Key styling */
