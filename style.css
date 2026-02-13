@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background-color: #65cbf3;
+  font-family: system-ui;
 }
  
 canvas {
