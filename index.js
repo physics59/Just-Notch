@@ -1,12 +1,17 @@
+let canvas;
+let ctx;
+let missileCounter;
+window.addEventListener("DOMContentLoaded", function () {
+  canvas = document.getElementById('gameCanvas');
+  ctx = canvas.getContext('2d');
+  missileCounter = document.getElementById('evasion');
+})
 let isTouchOnly = window.matchMedia("(hover: none)").matches;
 let keys;
 let lastDirection = 0;
 let tgtDirection = 0;
 let time = 0;
-let missilesEvaded = 0;
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-const missileCounter = document.getElementById('evasion');
+let missilesEvaded = 0; 
 resizeCanvas();
 function determineMobile() {
 if (!isTouchOnly) {
