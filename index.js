@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", function () {
   canvas = document.getElementById('gameCanvas');
   ctx = canvas.getContext('2d');
   missileCounter = document.getElementById('evasion');
+  determineMobile();
 })
 let isTouchOnly = window.matchMedia("(hover: none)").matches;
 let keys;
