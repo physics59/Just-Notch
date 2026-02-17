@@ -1,19 +1,19 @@
 let canvas;
 let ctx;
 let missileCounter;
+let isTouchOnly;
 window.addEventListener("DOMContentLoaded", function () {
   canvas = document.getElementById('gameCanvas');
   ctx = canvas.getContext('2d');
   missileCounter = document.getElementById('evasion');
+  isTouchOnly = window.matchMedia("(hover: none)").matches;
   determineMobile();
 })
-let isTouchOnly = window.matchMedia("(hover: none)").matches;
 let keys;
 let lastDirection = 0;
 let tgtDirection = 0;
 let time = 0;
 let missilesEvaded = 0; 
-resizeCanvas();
 function determineMobile() {
 if (!isTouchOnly) {
   document.getElementsByClass("keycontain2").style.display = "none";
@@ -67,6 +67,7 @@ function resizeCanvas() {
     canvas.height = window.innerHeight;
   }*/
 }
+resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('keydown', function(event) {
   if (event.key == "Tab") {
