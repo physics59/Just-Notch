@@ -1,0 +1,165 @@
+body {
+  margin: 40px;
+  font-family: system-ui;
+  font-weight: 500;
+  font-size: 1rem;
+  background-color: #2A2A30;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom:20px;
+}
+
+h1 {
+  font-weight: 800; 
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+p {
+  border-bottom: solid 2px #2A2A30;
+  padding: 0 0 18px 10px;
+  color: lightgrey;
+}
+
+img {width: 64px;}
+
+span {color:salmon; font-weight:700;}
+
+.container {
+  width: 90%;
+  background-color: #202024;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  padding: 40px;
+  height: max-content;
+  min-height: 80vh;
+  position: relative;
+  margin-bottom:20px;
+}
+
+.button {
+  border-radius: 20px;
+  width: max-content;
+  padding: 10px 15px;
+  background-color: white;
+  color: black;
+  font-weight: 800;
+  margin-right: 15px;
+  margin-top: 12px;
+}
+
+.btncontain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button:hover {
+  cursor: pointer;
+  scale: 1.05;
+  transition-duration: 0.3s;
+}
+
+#betabtn {
+  background-color: lightgreen;
+  position: relative;
+  margin-right: 0;
+  animation-name: pulse;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out
+}
+
+#betabtn:hover {animation-name: none;}
+
+#betabtn::before {
+  content: '(online)';
+  color: transparent;
+  font-size: 0.7em;
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  
+}
+
+#betabtn:hover::before {
+  bottom: -18px;
+  transition-duration: 0.3s;
+  color: grey;
+  
+}
+
+#physics59 {color: turquoise; text-shadow: 0 0 12px rgba(109, 201, 201, 0.5);}
+
+.button::after {
+    content: " ↗";
+    color: transparent;
+    font-size: 0em;
+    font-weight: 800;
+    transform: translateX(-5px);
+}
+
+.button:hover::after {
+    transform: translateX(5px);
+    transition-duration: 0.3s;
+  font-size: 0.9em;
+  color: black;
+  display: inline-block;
+}  
+
+.secondcontent {
+  bottom: 20px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: min(35px, 10%);
+  flex: 1;
+
+}
+
+.secondp {
+  color: white;
+  font-size: 1em;
+  border: 2px solid lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom: 2px solid #2A2A30;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 2px solid #2A2A30;
+  margin-bottom: 40px;
+  width: 86.5%;
+}
+
+#piksl {
+  bottom: -18px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes pulse {
+  0% {box-shadow: 0 0 0px rgba(150, 200, 150, 0.5);}
+  60% {box-shadow: 0 0 0px rgba(150, 200, 150, 0.5);}
+  80% {box-shadow: 0 0 20px rgba(150, 200, 150, 0.4);}
+  100% {box-shadow: 0 0 0px rgba(150, 200, 150, 0.5);}
+}
+
+@media only screen and (max-width: 500px) {
+  .container {padding: 20px; height: 100%;}
+  body {margin: 30px 15px;}
+  .button {width: 90%; text-align: center; margin-right: 0;}
+  .secondp {border-bottom:none;}
+  p {font-size: 0.9em;}
+  h1 {font-size: 1.8em;}
+}
