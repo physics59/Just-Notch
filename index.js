@@ -69,12 +69,12 @@ function resizeCanvas() {
 }
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
-window.addEventListener('keydown', function(event) {
+/*window.addEventListener('keydown', function(event) {
   if (event.key == "Tab") {
     isTouchOnly = !isTouchOnly;
     determineMobile();
   }
-}
+})*/
 function missileGuide() {
   let deltax = objects[0].x - objects[1].x;
   let deltay = objects[0].y - objects[1].y;
