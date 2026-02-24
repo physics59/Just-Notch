@@ -2,6 +2,7 @@ body {
   margin: 0;
   background-color: #65cbf3;
   font-family: system-ui;
+  font-weight: 600;
 }
  
 canvas {
