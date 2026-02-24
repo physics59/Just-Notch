@@ -64,7 +64,7 @@ canvas {
 }
  
 /* Key container */
-.keycontain2 {
+#keycontain2 {
   display: grid;
   grid-template-columns: 50px 50px 50px;
   gap: 17px;
