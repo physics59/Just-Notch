@@ -54,7 +54,6 @@ span {
   border-radius: 10px;
   max-width: 400px;
   padding: 40px;
-  height: max-content;
   position: relative;
   display: flex;
   height: clamp(500px, 80vw, 800px);
