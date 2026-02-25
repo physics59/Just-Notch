@@ -57,6 +57,9 @@ span {
   height: max-content;
   min-height: 80vh;
   position: relative;
+  display: flex;
+  flex-direction: columns;
+  justify-content: space-evenly;
 }
 
 .button {
