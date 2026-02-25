@@ -1,36 +1,54 @@
+:root {
+  --maincolor: #2A2A30;
+  --secondcolor: #65cbf3;
+  --thirdcolor: #3A3A40;
+}
+
 body {
   margin: 20px;
+  margin-top: 0;
+  margin-bottom: 0;
   overflow: hidden;
   height: 100dvh;
   font-family: system-ui;
   font-weight: 500;
   font-size: 1rem;
-  background-color: #2A2A30;
+  background-color: #65cbf3;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: -2;
+  position: relative;
 }
 
 h1 {
   font-weight: 800; 
   text-align: center;
   margin-bottom: 30px;
+  margin-top: 0;
+  font-family: Tiny5, system-ui, sans-serif;
 }
 
 p {
-  border-bottom: solid 2px #2A2A30;
+  border-bottom: solid 2px var(--thirdcolor);
   padding: 0 0 18px 10px;
   color: lightgrey;
+  padding-right: 13px;
 }
 
 img {width: 64px;}
 
-span {color:salmon; font-weight:700;}
+span {
+  color:salmon; 
+  background-color: var(--thirdcolor); 
+  border-radius: 5px; 
+  font-weight: 700;
+}
 
 .container {
   width: 100%;
-  background-color: #19191C;
+  background-color: var(--maincolor);
   padding: 20px;
   border-radius: 10px;
   max-width: 400px;
@@ -43,7 +61,7 @@ span {color:salmon; font-weight:700;}
 .button {
   border-radius: 20px;
   width: max-content;
-  padding: 10px 15px;
+  padding: 10px 20px;
   background-color: white;
   color: black;
   font-weight: 800;
@@ -65,13 +83,13 @@ span {color:salmon; font-weight:700;}
 }
 
 #betabtn {
-  background-color: lightgreen;
+  background-color: var(--secondcolor);
   position: relative;
   margin-right: 0;
   animation-name: pulse;
   animation-duration: 10s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out
+  animation-timing-function: ease-in-out;
 }
 
 #betabtn:hover {animation-name: none;}
@@ -93,19 +111,41 @@ span {color:salmon; font-weight:700;}
   
 }
 
-#physics59 {color: turquoise; text-shadow: 0 0 12px rgba(109, 201, 201, 0.5);}
+#found {
+  text-align: center; 
+  opacity: 1;
+  color: gray;
+  font-size: 0.9em;
+  padding-bottom:0;
+  padding-top: 5px;
+}
+
+#physics59 {
+  color: var(--secondcolor); 
+  text-shadow: 0 0 18px
+  rgba(109, 201, 201, 0.3);
+  text-decoration: none;
+  font-weight: 800;
+  opacity: 0.9;
+  margin-left: 2px;
+}
+
+#physics59:hover {
+  text-shadow: 0 0 25px rgba(109, 201, 201, 0.2);
+  transition-duration: 0.3s;
+}
 
 .button::after {
-    content: " ↗";
-    color: transparent;
-    font-size: 0em;
-    font-weight: 800;
-    transform: translateX(-5px);
+  content: " ↗";
+  color: transparent;
+  font-size: 0em;
+  font-weight: 800;
+  transform: translateX(-5px);
 }
 
 .button:hover::after {
-    transform: translateX(5px);
-    transition-duration: 0.3s;
+  transform: translateX(5px);
+  transition-duration: 0.3s;
   font-size: 0.9em;
   color: black;
   display: inline-block;
@@ -122,10 +162,15 @@ span {color:salmon; font-weight:700;}
 
 .secondp {
   color: white;
-  border: 2px solid #2A2A30;
   padding: 10px;
   border-radius: 10px;
-  border-bottom: 2px solid #2A2A30;
+  border: none;
+}
+
+.secondp::before {
+  content: "";
+  background-color: var(--thirdcolor);
+  
 }
 
 .footer {
@@ -133,30 +178,83 @@ span {color:salmon; font-weight:700;}
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  border-bottom: 2px solid #2A2A30;
+  border-bottom: 2px solid var(--thirdcolor);
   margin-bottom: 40px;
   width: 86.5%;
 }
 
-#piksl {
-  bottom: -18px;
+.piksl {
+  margin-bottom: -12px;
+  position: relative;
+}
+
+.piksl::before {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  top: -20px;
+  content: "";
+}
+
+#pikslcenter {
+  line-height: 30px;
+}
+
+.footcont {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -15px;
+  font-weight: 800;
+  font-size: 0.9em;
+}
+
+#cloudfloat, #cloudfloat2 {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  animation: float 60s infinite;
+  will-change: transform;
+  animation-delay: -3s;
+}
+
+#cloudfloat {
+  top: 10vh;
+  animation: float 22s linear infinite;
+  animation-delay: -5s;
+}
+
+#cloudfloat2 {
+  bottom: 10vh;
+  animation: float 25s linear infinite reverse;
+  animation-delay: -7s;
 }
 
 @keyframes pulse {
-  0% {box-shadow: 0 0 0px rgba(150, 200, 150, 0.5);}
-  60% {box-shadow: 0 0 0px rgba(150, 200, 150, 0.5);}
-  80% {box-shadow: 0 0 20px rgba(150, 200, 150, 0.4);}
-  100% {box-shadow: 0 0 0px rgba(150, 200, 150, 0.5);}
+  0% {box-shadow: 0 0 0px rgba(128, 210, 242, 0.5);}
+  60% {box-shadow: 0 0 0px rgba(128, 210, 242, 0.5);}
+  80% {box-shadow: 0 0 20px rgba(128, 210, 242, 0.4);}
+  100% {box-shadow: 0 0 0px rgba(128, 210, 242, 0.5);}
 }
 
+@keyframes float {
+  0% { transform: translateX(-20vw); opacity: 0; }
+  1% { opacity: 1; }
+  99% { opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+  
+  
+  
+
 @media only screen and (max-width: 500px) {
-  .container {padding: 25px; height: 90vh;}
-  body {margin: 20px 20px;}
+  .container {padding: 25px; max-height: 85%;}
+  body {margin: 0px 20px;}
   .button {width: 90%; text-align: center; margin-right: 0;}
   .secondp {}
   p {font-size: 0.9em;}
   h1 {font-size: 1.8em;}
+  #cloudfloat, #cloudfloat2 {animation: float 20s infinite;}
+}
+
+@media only screen and (max-width: 400px) {
+  #found {font-size: 0em;}
 }
