@@ -56,7 +56,7 @@ span {
   padding: 40px;
   position: relative;
   display: flex;
-  height: clamp(500px, 80vw, 800px);
+  height: max-content;
   flex-direction: column;
   justify-content: space-evenly;
 }
