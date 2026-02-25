@@ -1,6 +1,7 @@
 body {
-  margin: 40px;
-  height: 100vh;
+  margin: 20px;
+  overflow: hidden;
+  height: 100dvh;
   font-family: system-ui;
   font-weight: 500;
   font-size: 1rem;
