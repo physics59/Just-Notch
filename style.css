@@ -1,5 +1,6 @@
 body {
   margin: 40px;
+  height: 100vh;
   font-family: system-ui;
   font-weight: 500;
   font-size: 1rem;
@@ -8,7 +9,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   padding-bottom:20px;
 }
 
@@ -29,11 +29,11 @@ img {width: 64px;}
 span {color:salmon; font-weight:700;}
 
 .container {
-  width: 90%;
-  background-color: #202024;
+  width: 100%;
+  background-color: #19191C;
   padding: 20px;
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 400px;
   padding: 40px;
   height: max-content;
   min-height: 80vh;
@@ -50,6 +50,7 @@ span {color:salmon; font-weight:700;}
   font-weight: 800;
   margin-right: 15px;
   margin-top: 12px;
+  text-decoration: none;
 }
 
 .btncontain {
@@ -118,14 +119,11 @@ span {color:salmon; font-weight:700;}
   align-items: center;
   position: relative;
   margin-top: min(35px, 10%);
-  flex: 1;
-
 }
 
 .secondp {
   color: white;
-  font-size: 1em;
-  border: 2px solid lightgray;
+  border: 2px solid #2A2A30;
   padding: 10px;
   border-radius: 10px;
   border-bottom: 2px solid #2A2A30;
@@ -156,10 +154,10 @@ span {color:salmon; font-weight:700;}
 }
 
 @media only screen and (max-width: 500px) {
-  .container {padding: 20px; height: 100%;}
-  body {margin: 30px 15px;}
+  .container {padding: 25px; height: 90vh;}
+  body {margin: 20px 20px;}
   .button {width: 90%; text-align: center; margin-right: 0;}
-  .secondp {border-bottom:none;}
+  .secondp {}
   p {font-size: 0.9em;}
   h1 {font-size: 1.8em;}
 }
