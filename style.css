@@ -10,7 +10,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom:20px;
 }
 
 h1 {
@@ -39,7 +38,6 @@ span {color:salmon; font-weight:700;}
   height: max-content;
   min-height: 80vh;
   position: relative;
-  margin-bottom:20px;
 }
 
 .button {
