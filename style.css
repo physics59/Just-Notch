@@ -181,6 +181,8 @@ span {
   border-bottom: 2px solid var(--thirdcolor);
   margin-bottom: 40px;
   width: 86.5%;
+  display: flex;
+  justify-content: center;
 }
 
 .piksl {
@@ -202,9 +204,12 @@ span {
 .footcont {
   display: flex;
   justify-content: center;
-  margin-bottom: -15px;
+  margin-bottom: -16px;
   font-weight: 800;
   font-size: 0.9em;
+  background-color: var(--maincolor);
+  width: max-content;
+  padding: 0 0 0 5px;
 }
 
 #cloudfloat, #cloudfloat2 {
