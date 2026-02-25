@@ -55,9 +55,9 @@ span {
   max-width: 400px;
   padding: 40px;
   height: max-content;
-  min-height: 80vh;
   position: relative;
   display: flex;
+  height: clamp(500px, 80vw, 800px);
   flex-direction: column;
   justify-content: space-evenly;
 }
