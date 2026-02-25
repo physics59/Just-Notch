@@ -58,7 +58,7 @@ span {
   min-height: 80vh;
   position: relative;
   display: flex;
-  flex-direction: columns;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 
