@@ -5,43 +5,47 @@
   <link rel="stylesheet" type="text/css" href="game.css" />
 </head>
 <body>
-  <p id="evasion">Missiles Evaded: 0</p>
- 
-  <canvas style=" background-color: #65cbf3;" id="gameCanvas"></canvas>
+  <canvas style=" background-color: #65cbf3;" id="gameCanvas">
+    <div class="container">
+      <p id="evasion">Missiles Evaded: 0</p>
+      <p class="infotop" id="highScore">Highscore: 0</p>
+    </div>
+  </canvas>
  
   <div id="keycontain2">
-  <div class="key bottom" id="keyleft">
-    <div class="arrow">
-      <div class="arrow2"></div>
-      <div class="arrow2 arrow3"></div>
-    </div>
-  </div>
-  <div>
-    <div class="key" id="keyup">
-      <div class="arrow">
-        <div class="arrow2"></div>
-        <div class="arrow2 arrow3"></div>
-      </div>
-    </div>
-    <div class="key" id="keydown">
-      <div class="arrow">
-        <div class="arrow2"></div>
-        <div class="arrow2 arrow3"></div>
-      </div>
-    </div>
-  </div>
-  <div class="key bottom" id="keyright">
-    <div class="arrow">
-      <div class="arrow2"></div>
-      <div class="arrow2 arrow3"></div>
-    </div>
-  </div>
+    <div class="key bottom" id="keyleft">
+      <div class="arrow">
+        <div class="arrow2"></div>
+        <div class="arrow2 arrow3"></div>
+      </div>
+    </div>
+    <div>
+      <div class="key" id="keyup">
+        <div class="arrow">
+          <div class="arrow2"></div>
+          <div class="arrow2 arrow3"></div>
+        </div>
+      </div>
+      <div class="key" id="keydown">
+        <div class="arrow">
+          <div class="arrow2"></div>
+          <div class="arrow2 arrow3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="key bottom" id="keyright">
+      <div class="arrow">
+        <div class="arrow2"></div>
+        <div class="arrow2 arrow3"></div>
+      </div>
+    </div>
   </div>
 
 <script src="logic.js"></script>
 
 </body>
 </html>
+
 
 
 
