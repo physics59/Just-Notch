@@ -84,8 +84,8 @@ function winGame() {
 }
 
 function recenter() {
-  objects[1].y = canvas.width / 2;
-  objects[1].x = canvas.height / 2;
+  objects[0].y = canvas.height / 2;
+  objects[0].x = canvas.width / 2;
 }
 
 function retreiveHighScore() {
@@ -117,7 +117,7 @@ function resetGame() {
   objects[1].v = 0.01;
   time = 0;
   keys.forEach(key => {
-    key = false;
+  key = false;
   });
   updateHighScore();
   missileCounter.innerText = `Missiles Evaded: ${missilesEvaded}`;
