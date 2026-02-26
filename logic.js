@@ -74,12 +74,18 @@ function missileGuide() {
 
 function loseGame() {
   missilesEvaded = 0;
+  recenter();
   resetGame();
 }
 
 function winGame() {
   missilesEvaded++;
   resetGame();
+}
+
+function recenter() {
+  obj.y = canvas.width / 2;
+  obj.x = canvas.height / 2;
 }
 
 function retreiveHighScore() {
