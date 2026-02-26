@@ -8,6 +8,8 @@ let tgtDirection = 0;
 let time = 0;
 let missilesEvaded = 0;
 let objects;
+let highScore = 0;
+
 
 function determineMobile() {
   if (!isTouchOnly) {
@@ -79,6 +81,27 @@ function winGame() {
   resetGame();
 }
 
+function retreiveHighScore() {
+    try {
+      highScore = parseInt(localStorage.getItem("highScore")) || 0;
+  } catch (error) {
+    console.error('Error retreiving highScore:', error);
+  }
+}
+
+function updateHighScore() {
+  if (missilesEvaded > highScore) {
+    highScore = missilesEvaded;
+    try {
+    localStorage.setItem('highScore', highScore);
+    console.log('New highscore saved:', missilesEvaded);
+    } catch (error) {
+        console.log('Error saving highScore:', error);
+    }
+  }
+  return highScore;
+}
+
 function resetGame() {
   objects[1].x = -200;
   objects[1].y = (canvas.height / 2);
@@ -88,7 +111,8 @@ function resetGame() {
   keys.forEach(key => {
     key = false;
   });
-  missileCounter.innerText = `Missiles Evaded: ${missilesEvaded}`;
+  updateHighScore();
+  missileCounter.innerText = `Missiles Evaded: ${missilesEvaded}  Highscore: ${highScore}`;
 }
 
 function update() {
@@ -134,6 +158,7 @@ window.addEventListener("DOMContentLoaded", function () {
   isTouchOnly = window.matchMedia("(hover: none)").matches;
   determineMobile();
   resizeCanvas();
+  retreiveHighScore();
   objects = [
     {
       x: (canvas.width / 2), y: (canvas.height / 2), sizex: 100, sizey: 50, color: 'grey', v: 1, theta: 0,
