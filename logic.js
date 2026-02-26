@@ -87,6 +87,8 @@ function retreiveHighScore() {
   } catch (error) {
     console.error('Error retreiving highScore:', error);
   }
+  updateHighScore();
+  console.log('Highscore retreived [',highScore,']')
 }
 
 function updateHighScore() {
@@ -94,7 +96,7 @@ function updateHighScore() {
     highScore = missilesEvaded;
     try {
     localStorage.setItem('highScore', highScore);
-    console.log('New highscore saved:', missilesEvaded);
+    console.log('New highscore saved [', missilesEvaded, ']');
     } catch (error) {
         console.log('Error saving highScore:', error);
     }
