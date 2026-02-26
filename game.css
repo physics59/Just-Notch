@@ -1,3 +1,9 @@
+:root {
+  --maincolor: #2A2A30;
+  --secondcolor: #65cbf3;
+  --thirdcolor: #3A3A40;
+}
+
 body {
   margin: 0;
   background-color: #65cbf3;
@@ -15,7 +21,6 @@ body {
 }
 
 .infotop {
-  background-color: var(--maincolor);
   color: var(--maincolor);
   font-size: 1rem;
   margin-left: 15px;
