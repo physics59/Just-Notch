@@ -115,7 +115,7 @@ function resetGame() {
   });
   updateHighScore();
   missileCounter.innerText = `Missiles Evaded: ${missilesEvaded}`;
-  highScoreCounter.innerText = `Missiles Evaded: ${highScore}`;
+  highScoreCounter.innerText = `Highscore: ${highScore}`;
 }
 
 function update() {
