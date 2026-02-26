@@ -95,7 +95,6 @@ function retreiveHighScore() {
 function updateHighScore() {
   if (missilesEvaded > highScore) {
     highScore = missilesEvaded;
-    highScoreCounter.innerText = `Missiles Evaded: ${highScore}`;
     try {
     localStorage.setItem('highScore', highScore);
     console.log('New highscore saved [', missilesEvaded, ']');
@@ -107,30 +106,31 @@ function updateHighScore() {
 }
 
 function resetGame() {
-  objects[1].x = -200;
-  objects[1].y = (canvas.height / 2);
-  objects[1].theta = 0;
-  objects[1].v = 0.01;
-  time = 0;
-  keys.forEach(key => {
-    key = false;
-  });
+  objects[1].x = -200;
+  objects[1].y = (canvas.height / 2);
+  objects[1].theta = 0;
+  objects[1].v = 0.01;
+  time = 0;
+  keys.forEach(key => {
+    key = false;
+  });
   updateHighScore();
-  missileCounter.innerText = `Missiles Evaded: ${missilesEvaded}`;
+  missileCounter.innerText = `Missiles Evaded: ${missilesEvaded}`;
+  highScoreCounter.innerText = `Missiles Evaded: ${highScore}`;
 }
 
 function update() {
-  if (keys && (keys[40] || keys[83])) { objects[0].v *= 0.95; }
-  if (keys && (keys[38] || keys[87])) { objects[0].v += 0.05; }
-  if (keys && (keys[37] || keys[65])) { objects[0].turnrate = -1; }
-  if (keys && (keys[39] || keys[68])) { objects[0].turnrate = 1; }
-  objects[1].velocityRamp = time;
-  missileGuide();
-  for (let obj of objects) {
-    //obj.theta %= (2 * Math.PI);
-    obj.x += obj.v * Math.cos(obj.theta);
-    obj.y += obj.v * Math.sin(obj.theta);
-  }
+  if (keys && (keys[40] || keys[83])) { objects[0].v *= 0.95; }
+  if (keys && (keys[38] || keys[87])) { objects[0].v += 0.05; }
+  if (keys && (keys[37] || keys[65])) { objects[0].turnrate = -1; }
+  if (keys && (keys[39] || keys[68])) { objects[0].turnrate = 1; }
+  objects[1].velocityRamp = time;
+  missileGuide();
+  for (let obj of objects) {
+    //obj.theta %= (2 * Math.PI);
+    obj.x += obj.v * Math.cos(obj.theta);
+    bj.y += obj.v * Math.sin(obj.theta);
+  }
 }
 
 function render() {
