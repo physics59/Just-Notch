@@ -88,7 +88,6 @@ function retreiveHighScore() {
   } catch (error) {
     console.error('Error retreiving highScore:', error);
   }
-  resetGame();
   console.log('Highscore retreived [',highScore,']')
 }
 
