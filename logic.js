@@ -194,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function () {
   highScoreCounter.innerText = `Highscore: ${highScore}`;
   objects = [
     {
-      x: (canvas.width / 2), y: (canvas.height / 2), sizex: 100, sizey: 50, color: grey, v: 1, theta: 0,
+      x: (canvas.width / 2), y: (canvas.height / 2), sizex: 100, sizey: 50, color: 'grey', v: 1, theta: 0,
       set turnrate(sign) {
         this.theta += sign * 0.05 * Math.exp(-((3 * this.v - 13.6) ** 2) / 50);
         this.v *= 0.984375;
