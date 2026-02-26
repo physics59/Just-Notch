@@ -86,6 +86,27 @@ function winGame() {
 function recenter() {
   objects[0].y = canvas.height / 2;
   objects[0].x = canvas.width / 2;
+  objects[0].v = 0;
+  objects[0].theta = 0;
+}
+
+function outOfBounds() {
+  if (objects[0].x > canvas.width -50) {
+    objects[0].v = ((canvas.width - objects[0].x) / 50) * objects[0].v
+  }
+  
+  if (objects[0].x > 0 + 50 ) {
+    objects[0].v = ((objects[0].x) / 50) * objects[0].v
+  }
+
+  if (objects[0].y > canvas.height -50) {
+    objects[0].v = ((canvas.height - objects[0].y) / 50) * objects[0].v
+  }
+
+  if (objects[0].y > 0 + 50) {
+    objects[0].v = ((objects[0].y) / 50) * objects[0].v
+  }
+
 }
 
 function retreiveHighScore() {
@@ -155,6 +176,7 @@ function render() {
 function gameLoop() {
   update();
   render();
+  outOfBounds();
   requestAnimationFrame(gameLoop);
   time++;
   if (objects[1].v < 0) { winGame(); }
@@ -172,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function () {
   highScoreCounter.innerText = `Highscore: ${highScore}`;
   objects = [
     {
-      x: (canvas.width / 2), y: (canvas.height / 2), sizex: 100, sizey: 50, color: 'grey', v: 1, theta: 0,
+      x: (canvas.width / 2), y: (canvas.height / 2), sizex: 100, sizey: 50, color: 'var(--thirdcolor)', v: 1, theta: 0,
       set turnrate(sign) {
         this.theta += sign * 0.05 * Math.exp(-((3 * this.v - 13.6) ** 2) / 50);
         this.v *= 0.984375;
