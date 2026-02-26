@@ -84,8 +84,8 @@ function winGame() {
 }
 
 function recenter() {
-  objects.y = canvas.width / 2;
-  objects.x = canvas.height / 2;
+  objects[1].y = canvas.width / 2;
+  objects[1].x = canvas.height / 2;
 }
 
 function retreiveHighScore() {
