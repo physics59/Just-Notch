@@ -128,7 +128,7 @@ function update() {
   for (let obj of objects) {
     //obj.theta %= (2 * Math.PI);
     obj.x += obj.v * Math.cos(obj.theta);
-    bj.y += obj.v * Math.sin(obj.theta);
+    obj.y += obj.v * Math.sin(obj.theta);
   }
 }
 
