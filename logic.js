@@ -8,6 +8,7 @@ let tgtDirection = 0;
 let time = 0;
 let missilesEvaded = 0;
 let objects;
+
 function determineMobile() {
   if (!isTouchOnly) {
     document.getElementById("keycontain2").style.display = "none";
@@ -18,7 +19,8 @@ function determineMobile() {
     window.addEventListener('keyup', function (e) {
       keys[e.keyCode] = false;
     })
-    alert("Detected as desktop");
+    // alert("Detected as desktop");
+    console.log('Desktop detected')
   } else {
     keys = new Array(41);
     document.getElementById("keyup").addEventListener('touchstart', function () { keys[40] = true; })
@@ -29,13 +31,16 @@ function determineMobile() {
     document.getElementById("keyleft").addEventListener('touchend', function () { keys[39] = false; })
     document.getElementById("keyright").addEventListener('touchend', function () { keys[37] = false; })
     document.getElementById("keydown").addEventListener('touchend', function () { keys[38] = false; })
-    alert("Detected as mobile");
+    // alert("Detected as mobile");
+    console.log('Mobile detected')
   }
 }
+
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
+
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('keydown', function (event) {
   if (event.key == "m") {
@@ -44,6 +49,7 @@ window.addEventListener('keydown', function (event) {
     loseGame();
   }
 })
+
 function missileGuide() {
   let deltax = objects[0].x - objects[1].x;
   let deltay = objects[0].y - objects[1].y;
@@ -62,14 +68,17 @@ function missileGuide() {
     objects[1].turnrate = (target - objects[1].theta) / 2 * Math.PI;
   }
 }
+
 function loseGame() {
   missilesEvaded = 0;
   resetGame();
 }
+
 function winGame() {
   missilesEvaded++;
   resetGame();
 }
+
 function resetGame() {
   objects[1].x = -200;
   objects[1].y = (canvas.height / 2);
@@ -81,6 +90,7 @@ function resetGame() {
   });
   missileCounter.innerText = `Missiles Evaded: ${missilesEvaded}`;
 }
+
 function update() {
   if (keys && (keys[40] || keys[83])) { objects[0].v *= 0.95; }
   if (keys && (keys[38] || keys[87])) { objects[0].v += 0.05; }
@@ -94,6 +104,7 @@ function update() {
     obj.y += obj.v * Math.sin(obj.theta);
   }
 }
+
 function render() {
   //if(50 > objects[0].x || (canvas.width - 50) < objects[0].x) {ctx.scale((Math.abs(objects[0].v * Math.cos(objects[0].theta)), 0))}
   //if(50 > objects[0].y || (canvas.height - 50) < objects[0].y) {ctx.scale(0, Math.abs((objects[0].v * Math.sin(objects[0].theta))))}
@@ -107,6 +118,7 @@ function render() {
     ctx.restore();
   }
 }
+
 function gameLoop() {
   update();
   render();
@@ -114,6 +126,7 @@ function gameLoop() {
   time++;
   if (objects[1].v < 0) { winGame(); }
 }
+
 window.addEventListener("DOMContentLoaded", function () {
   canvas = document.getElementById('gameCanvas');
   ctx = canvas.getContext('2d');
