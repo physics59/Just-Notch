@@ -258,10 +258,8 @@ span {
   .container {padding: 25px; max-height: 85%;}
   body {margin: 0px 20px;}
   .button {width: 90%; text-align: center; margin-right: 0;}
-  .secondp {}
   p {font-size: 0.9em;}
   h1 {font-size: 1.8em;}
   #cloudfloat, #cloudfloat2 {animation: float 20s infinite;}
   #found {font-size: 0em;}
-}
 }
