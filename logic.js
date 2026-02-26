@@ -163,6 +163,7 @@ window.addEventListener("DOMContentLoaded", function () {
   determineMobile();
   resizeCanvas();
   retreiveHighScore();
+  highScoreCounter.innerText = `Highscore: ${highScore}`;
   objects = [
     {
       x: (canvas.width / 2), y: (canvas.height / 2), sizex: 100, sizey: 50, color: 'grey', v: 1, theta: 0,
