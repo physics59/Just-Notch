@@ -183,6 +183,7 @@ span {
   transform: translateX(-50%);
   border-bottom: 2px solid var(--thirdcolor);
   margin-bottom: 40px;
+  margin-top: 50px;
   width: 86.5%;
   display: flex;
   justify-content: center;
