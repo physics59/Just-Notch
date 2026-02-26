@@ -91,20 +91,22 @@ function recenter() {
 }
 
 function outOfBounds() {
-  if (objects[0].x > canvas.width -50) {
-    objects[0].v = ((canvas.width - objects[0].x) / 50) * objects[0].v
+  const boundDistance = 50;
+
+  if (objects[0].x > canvas.width - boundDistance) {
+    objects[0].v = ((canvas.width - objects[0].x) / boundDistance) * objects[0].v
   }
 
-  if (objects[0].x > 0 + 50 ) {
-    objects[0].v = ((objects[0].x) / 50) * objects[0].v
+  if (objects[0].x < 0 + boundDistance ) {
+    objects[0].v = ((objects[0].x) / boundDistance) * objects[0].v
   }
 
-  if (objects[0].y > canvas.height -50) {
-    objects[0].v = ((canvas.height - objects[0].y) / 50) * objects[0].v
+  if (objects[0].y > canvas.height -boundDistance) {
+    objects[0].v = ((canvas.height - objects[0].y) / boundDistance) * objects[0].v
   }
 
-  if (objects[0].y > 0 + 50) {
-    objects[0].v = ((objects[0].y) / 50) * objects[0].v
+  if (objects[0].y < 0 + boundDistance) {
+    objects[0].v = ((objects[0].y) / boundDistance) * objects[0].v
   }
 
 }
