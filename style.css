@@ -10,7 +10,7 @@ body {
   margin-bottom: 0;
   overflow: hidden;
   height: 100dvh;
-  font-family: system-ui;
+  font-family: "Google Sans", system-ui, sans-serif;
   font-weight: 500;
   font-size: 1rem;
   background-color: #65cbf3;
@@ -27,7 +27,7 @@ h1 {
   text-align: center;
   margin-bottom: 30px;
   margin-top: 0;
-  font-family: Tiny5, system-ui, sans-serif;
+  font-family: "Pixelify sans", system-ui, sans-serif;
   font-size: 2.1em;
 }
 
@@ -93,6 +93,10 @@ span {
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+}
+
+#betabtn:hover {
+  font-family: "Pixelfy Sans", system-ui, sans-serif;
 }
 
 #betabtn:hover {animation-name: none;}

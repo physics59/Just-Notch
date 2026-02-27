@@ -100,21 +100,16 @@ function findSideClosest() {
   let distanceBottom = player.yCoordinate;
   let distanceTop = canvas.height - player.yCoordinate; 
 
-  // Couldn't get these to work usefully, might want to consider later
-  let closestToX = Math.min(distanceLeft, distanceRight);
-  let closestToY = Math.min(distanceTop, distanceBottom);
+  let closestToX = Math.min(distanceLeft, distanceRight, distanceTop, distanceBottom);
 
-  if (distanceBottom <= (canvas.height / 2)) {
-    sideClosest = 'bottom';
-  } else if (distanceBottom > (canvas.height / 2)) {
-    sideClosest = 'top';
-  }
-
-  if (distanceLeft <= (canvas.width / 2)) {
+  if (closestToX == distanceLeft) {
     sideClosest = 'left';
-  } else if (distanceLeft > (canvas.width / 2)) {
+  } else if (closestToX == distanceRight) {
     sideClosest = 'right';
-  }
+  } else if (closestToY == distanceTop) {
+    sideClosest = 'top';
+  } else if (closestToY == distanceBottom)
+    sideClosest = 'bottom';
 
   return sideClosest;
 }
