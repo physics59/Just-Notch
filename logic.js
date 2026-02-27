@@ -158,6 +158,17 @@ function outOfBounds() {
   }
 }
 
+function rebound() {
+  player.velocity = player.velocity / 2;
+  player.atAngle = 360 - player.atAngle;
+}
+
+function detectRebound {
+  if (canvas.height == player.xCoordinate || canvas.width == player.yCoordinate || player.xCoordinate == 0 || player.yCoordinate == 0) {
+    rebound()
+  }
+}
+
 function retreiveHighScore() {
     try {
       highScore = parseInt(localStorage.getItem("highScore")) || 0;
@@ -226,7 +237,7 @@ function render() {
 function gameLoop() {
   update();
   render();
-  outOfBounds();
+  detectRebound();
   requestAnimationFrame(gameLoop);
   time++;
   if (missile.velocity < 0) { winGame(); }
