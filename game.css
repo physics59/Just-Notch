@@ -19,6 +19,7 @@ body {
   box-shadow: 0 4px 13px 0 rgba(122, 122, 122, 0.2);
   align-items: center;
   max-height: 50px;
+  position: fixed;
 }
 
 .infotop {

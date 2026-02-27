@@ -92,7 +92,9 @@ function recenter() {
   player.atAngle = 0;
 }
 
-function findSideClosest {  // Redundant function, might use later for escaping outOfBounds()
+ // Redundant function, might use later for escaping outOfBounds()
+
+function findSideClosest { 
   let distanceLeft = player.xCoordinate;
   let distanceRight = canvas.width - player.xCoordinate;
   let distanceBottom = player.yCoordinate;
