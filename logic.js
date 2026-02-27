@@ -104,9 +104,9 @@ function findSideClosest() {
   let closestToX = Math.min(distanceLeft, distanceRight);
   let closestToY = Math.min(distanceTop, distanceBottom);
 
-  if (distanceBottom <= (canvas.width / 2)) {
+  if (distanceBottom <= (canvas.height / 2)) {
     sideClosest = 'bottom';
-  } else if (distanceBottom > (canvas.width / 2)) {
+  } else if (distanceBottom > (canvas.height / 2)) {
     sideClosest = 'top';
   }
 
@@ -139,25 +139,25 @@ function outOfBounds() {
 
   if (player.xCoordinate > (canvas.width - boundDistance)) {
     let playerDistance = canvas.width - player.xCoordinate;
-    let virtualDistance = playerDistance * 5;
+    let virtualDistance = playerDistance * 2;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
   } else if (player.xCoordinate < boundDistance) {
     let playerDistance = player.xCoordinate;
-    let virtualDistance = playerDistance * 5;
+    let virtualDistance = playerDistance * 2;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
   } else if (player.yCoordinate > (canvas.height - boundDistance)) {
     let playerDistance = canvas.height - player.yCoordinate;
-    let virtualDistance = playerDistance * 5;
+    let virtualDistance = playerDistance * 2;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
   } else if (player.yCoordinate < boundDistance) {
     let playerDistance = player.yCoordinate;
-    let virtualDistance = playerDistance * 5;
+    let virtualDistance = playerDistance * 2;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
   }
