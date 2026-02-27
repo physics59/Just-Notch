@@ -163,7 +163,7 @@ function rebound() {
   player.atAngle = 360 - player.atAngle;
 }
 
-function detectRebound {
+function detectRebound() {
   if (canvas.height == player.xCoordinate || canvas.width == player.yCoordinate || player.xCoordinate == 0 || player.yCoordinate == 0) {
     rebound()
   }
