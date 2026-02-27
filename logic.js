@@ -12,8 +12,7 @@ let highScore = 0;
 let player;
 let missile;
 let objects;
-let sideFacing;
-let sideClosest;
+
 
 function determineMobile() {
   if (!isTouchOnly) {
@@ -90,41 +89,6 @@ function recenter() {
   player.xCoordinate = canvas.width / 2;
   player.velocity = 0.01;
   player.atAngle = 0;
-}
-
- // Redundant function, might use later for escaping outOfBounds()
-
-function findSideClosest() { 
-  let distanceLeft = player.xCoordinate;
-  let distanceRight = canvas.width - player.xCoordinate;
-  let distanceBottom = player.yCoordinate;
-  let distanceTop = canvas.height - player.yCoordinate; 
-
-  let closestToX = Math.min(distanceLeft, distanceRight, distanceTop, distanceBottom);
-
-  if (closestToX == distanceLeft) {
-    sideClosest = 'left';
-  } else if (closestToX == distanceRight) {
-    sideClosest = 'right';
-  } else if (closestToY == distanceTop) {
-    sideClosest = 'top';
-  } else if (closestToY == distanceBottom)
-    sideClosest = 'bottom';
-
-  return sideClosest;
-}
-
-function findSideFacing() {  // Also redundant, might use later for escaping outOfBounds()
-  let sideFacing;
-  if (player.atAngle <= 180) {
-    sideFacing = bottom;
-  } else if (player.atAngle > 180) {
-    sideFacing = top;
-  }
-}
-
-function escapeBounds() {
-  // Need to work on this
 }
 
 function outOfBounds() {
@@ -230,7 +194,6 @@ function render() {
     ctx.fillStyle = obj.background;
     ctx.fillRect((obj.width / -2), (obj.height / -2), obj.width, obj.height);
     ctx.restore();
-    console.log('');
   }
 }
 
