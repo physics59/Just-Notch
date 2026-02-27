@@ -123,7 +123,7 @@ function findSideFacing() {  // Also redundant, might use later for escaping out
   let sideFacing;
   if (player.atAngle <= 180) {
     sideFacing = bottom;
-  } elif (player.atAngle > 180) {
+  } else if (player.atAngle > 180) {
     sideFacing = top;
   }
 }
@@ -143,19 +143,19 @@ function outOfBounds() {
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
-  } elif (player.xCoordinate < boundDistance) {
+  } else if (player.xCoordinate < boundDistance) {
     let playerDistance = player.xCoordinate;
     let virtualDistance = playerDistance * 5;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
-  } elif (player.yCoordinate > (canvas.height - boundDistance)) {
+  } else if (player.yCoordinate > (canvas.height - boundDistance)) {
     let playerDistance = canvas.height - player.yCoordinate;
     let virtualDistance = playerDistance * 5;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
-  } elif (player.yCoordinate < boundDistance) {
+  } else if (player.yCoordinate < boundDistance) {
     let playerDistance = player.yCoordinate;
     let virtualDistance = playerDistance * 5;
     let speedScale = virtualDistance / boundDistance;
