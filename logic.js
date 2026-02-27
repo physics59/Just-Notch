@@ -139,25 +139,25 @@ function outOfBounds() {
 
   if (player.xCoordinate > (canvas.width - boundDistance)) {
     let playerDistance = canvas.width - player.xCoordinate;
-    let virtualDistance = playerDistance * 2;
+    let virtualDistance = playerDistance;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
   } else if (player.xCoordinate < boundDistance) {
     let playerDistance = player.xCoordinate;
-    let virtualDistance = playerDistance * 2;
+    let virtualDistance = playerDistance;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
   } else if (player.yCoordinate > (canvas.height - boundDistance)) {
     let playerDistance = canvas.height - player.yCoordinate;
-    let virtualDistance = playerDistance * 2;
+    let virtualDistance = playerDistance;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
 
   } else if (player.yCoordinate < boundDistance) {
     let playerDistance = player.yCoordinate;
-    let virtualDistance = playerDistance * 2;
+    let virtualDistance = playerDistance;
     let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
   }
