@@ -61,14 +61,13 @@ function missileGuide() {
   if (distance < 30) { loseGame(); }
   let closure = objects[0].v * Math.cos(tgtDirection - objects[0].theta);
   let angularVelocity = tgtDirection - lastDirection;
-  //if (keys && keys[32]) {alert(angularVelocity); keys[32] = false}
   let interceptTime = distance / (objects[1].v + closure);
   let target = tgtDirection + angularVelocity * interceptTime;
-  if (closure < 1 && closure > -1) {
+  /*if (closure < 1 && closure > -1) {
     objects[1].turnrate = 0;
   } else {
     objects[1].turnrate = (target - objects[1].theta) / 2 * Math.PI;
-  }
+  }*/
 }
 
 function loseGame() {
