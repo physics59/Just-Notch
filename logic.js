@@ -11,7 +11,6 @@ let missilesEvaded = 0;
 let objects;
 let highScore = 0;
 
-
 function determineMobile() {
   if (!isTouchOnly) {
     document.getElementById("keycontain2").style.display = "none";
@@ -86,30 +85,34 @@ function winGame() {
 function recenter() {
   objects[0].y = canvas.height / 2;
   objects[0].x = canvas.width / 2;
-  objects[0].v = 0;
+  objects[0].v = 0.01;
   objects[0].theta = 0;
 }
 
 function outOfBounds() {
   const boundDistance = 100;
-  const slowScale = 2;
+  // Objects[0] is the player
 
   if (objects[0].x > canvas.width - boundDistance) {
-    objects[0].v = ((50 + objects[0].x - canvas.width) / slowScale) * objects[0].v
+    let playerDistance = canvas.width - objects[0].x;
+    let speedScale = boundDistance / playerDistance;
+    objects[0].v = speedScale * objects[0].v;
   }
-
-  if (objects[0].x < 0 + boundDistance ) {
-    objects[0].v = ((50 - objects[0].x) / slowScale) * objects[0].v
+  if (objects[0].x < boundDistance ) {
+    let playerDistance = objects[0].x;
+    let speedScale = boundDistance / playerDistance;
+    objects[0].v = speedScale * objects[0].v
   }
-
-  if (objects[0].y > canvas.height - boundDistance) {
-    objects[0].v = ((50 + objects[0].y - canvas.height) / slowScale) * objects[0].v
+  if (objects[0].y > canvas.height -boundDistance) {
+    let playerDistance = canvas.height - objects[0].y;
+    let speedScale = boundDistance / playerDistance;
+    objects[0].v = speedScale * objects[0].v;
   }
-
-  if (objects[0].y < 0 + boundDistance) {
-    objects[0].v = ((50 - objects[0].y) / slowScale) * objects[0].v
+  if (objects[0].y <boundDistance) {
+    let playerDistance = objects[0].y;
+    let speedScale = boundDistance / playerDistance;
+    objects[0].v = speedScale * objects[0].v
   }
-
 }
 
 function retreiveHighScore() {
@@ -195,24 +198,51 @@ window.addEventListener("DOMContentLoaded", function () {
   resizeCanvas();
   retreiveHighScore();
   highScoreCounter.innerText = `Highscore: ${highScore}`;
-  objects = [
-    {
-      x: (canvas.width / 2), y: (canvas.height / 2), sizex: 100, sizey: 50, color: 'grey', v: 1, theta: 0,
-      set turnrate(sign) {
-        this.theta += sign * 0.05 * Math.exp(-((3 * this.v - 13.6) ** 2) / 50);
-        this.v *= 0.984375;
-      }
-    },
-    {
-      x: 20, y: (canvas.height / 2), sizex: 30, sizey: 5, color: 'white', v: 0.01, theta: 0,
-      set velocityRamp(time) {
-        this.v += Math.exp(-((time - 1) ** 4) + (2 * (time - 1)) + 1) - 0.015625;
-      },
-      set turnrate(command) {
-        this.theta += command * 0.0625 * Math.exp(-((8 * this.v - 64) ** 2) / 128);
-        this.v *= (0.984375 ** Math.abs(command));
-      }
-    },
-  ];
-  gameLoop();
-})
+
+  // Objects[0] refers to properties of the player
+  // Objects[1] refers to properties of the missile
+  // theta is the rotation of the player
+
+  // Please try to transition the current properties into this more legible layout
+  // To call a value, use the syntax: 
+  // properties(player.velocity)
+  // (for example) rather than objects[0].v, which isn't very informative
+
+  let properties = ['player', 'missile'];
+
+  let player = {
+    xCoordinate: canvas.width / 2,
+    yCoordinate: canvas.height / 2,
+    width: 100,
+    height: 50,
+    background: 'grey',
+    velocity: 1,
+    atAngle: 0,
+    set turnrate(sign) {
+      this.atAngle += sign * 0.05 * Math.exp(-((3 * this.velocity -13.6) ** 2) / 50); // Gaussian math for turnrate
+      this.velocity *= 0.984375; // 0.984375 = 63/64, friction constant
+    }
+  };
+
+  let missile = {
+    xCoordinate: 20,
+    yCoordinate: canvas.height / 2,
+    width: 30,
+    height: 5,
+    background: 'white',
+    velocity: 0.01,
+    atAngle: 0,
+    set velocityRamp(time) {
+      this.velocity += Math.exp(-((time -1) ** 4) + (2 * (time -1)) + 1) - 0.015625; // 0.015625 = 1/64, offset constant
+    },
+    set turnrate(command) {  //
+      this.atAngle += command * 0.0625 * Math.exp(-((8 * this.velocity - 64) ** 2) / 128);
+      this.velocity *= (0.984375 ** Math.abs(command));
+    }
+  };
+  
+  objects = [player, missile];
+
+  gameLoop();
+
+  })
