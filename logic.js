@@ -8,8 +8,10 @@ let lastDirection = 0;
 let tgtDirection = 0;
 let time = 0;
 let missilesEvaded = 0;
-let objects;
 let highScore = 0;
+let player;
+let missile;
+let objects;
 
 function determineMobile() {
   if (!isTouchOnly) {
@@ -53,20 +55,20 @@ window.addEventListener('keydown', function (event) {
 })
 
 function missileGuide() {
-  let deltax = objects[0].x - objects[1].x;
-  let deltay = objects[0].y - objects[1].y;
+  let deltax = player.xCoordinate - missile.xCoordinate;
+  let deltay = player.yCoordinate - missile.yCoordinate;
   lastDirection = tgtDirection;
   tgtDirection = Math.atan2(deltay, deltax);
   let distance = Math.sqrt(deltay ** 2 + deltax ** 2);
   if (distance < 30) { loseGame(); }
-  let closure = objects[0].v * Math.cos(tgtDirection - objects[0].theta);
+  let closure = player.velocity * Math.cos(tgtDirection - player.atAngle);
   let angularVelocity = tgtDirection - lastDirection;
   let interceptTime = distance / (objects[1].v + closure);
   let target = tgtDirection + angularVelocity * interceptTime;
   if (/*closure < 1 && closure > -1*/ false) {
     objects[1].turnrate = 0;
   } else {
-    objects[1].turnrate = (target - objects[1].theta) / 2 * Math.PI;
+    missile.turnrate = (target - missile.atAngle) / 2 * Math.PI;
   }
 }
 
@@ -82,35 +84,34 @@ function winGame() {
 }
 
 function recenter() {
-  objects[0].y = canvas.height / 2;
-  objects[0].x = canvas.width / 2;
-  objects[0].v = 0.01;
-  objects[0].theta = 0;
+  player.yCoordinate = canvas.height / 2;
+  player.xCoordinate = canvas.width / 2;
+  player.velocity = 0.01;
+  player.atAngle = 0;
 }
 
 function outOfBounds() {
   const boundDistance = 100;
-  // Objects[0] is the player
 
-  if (objects[0].x > canvas.width - boundDistance) {
-    let playerDistance = canvas.width - objects[0].x;
-    let speedScale = boundDistance / playerDistance;
-    objects[0].v = speedScale * objects[0].v;
+  if (player.xCoordinate > (canvas.width - boundDistance)) {
+    let playerDistance = canvas.width - player.xCoordinate;
+    let speedScale = playerDistance / boundDistance;
+    player.velocity = speedScale * player.velocity;
   }
-  if (objects[0].x < boundDistance ) {
-    let playerDistance = objects[0].x;
-    let speedScale = boundDistance / playerDistance;
-    objects[0].v = speedScale * objects[0].v
+  if (player.xCoordinate < boundDistance) {
+    let playerDistance = player.xCoordinate;
+    let speedScale = playerDistance / boundDistance;
+    player.velocity = speedScale * player.velocity;
   }
-  if (objects[0].y > canvas.height -boundDistance) {
-    let playerDistance = canvas.height - objects[0].y;
-    let speedScale = boundDistance / playerDistance;
-    objects[0].v = speedScale * objects[0].v;
+  if (player.yCoordinate > (canvas.height -boundDistance)) {
+    let playerDistance = canvas.height - player.yCoordinate;
+    let speedScale = playerDistance / boundDistance;
+    player.velocity = speedScale * player.velocity;
   }
-  if (objects[0].y <boundDistance) {
-    let playerDistance = objects[0].y;
-    let speedScale = boundDistance / playerDistance;
-    objects[0].v = speedScale * objects[0].v
+  if (player.yCoordinate <boundDistance) {
+    let playerDistance = player.yCoordinate;
+    let speedScale = playerDistance / boundDistance;
+    player.velocity = speedScale * player.velocity;
   }
 }
 
@@ -137,10 +138,10 @@ function updateHighScore() {
 }
 
 function resetGame() {
-  objects[1].x = -200;
-  objects[1].y = (canvas.height / 2);
-  objects[1].theta = 0;
-  objects[1].v = 0.01;
+  missile.xCoordinate = -200;
+  missile.yCoordinate = (canvas.height / 2);
+  missile.atAngle = 0;
+  missile.velocity = 0.01;
   time = 0;
   keys.forEach(key => {
   key = false;
@@ -151,16 +152,16 @@ function resetGame() {
 }
 
 function update() {
-  if (keys && (keys[40] || keys[83])) { objects[0].v *= 0.95; }
-  if (keys && (keys[38] || keys[87])) { objects[0].v += 0.05; }
-  if (keys && (keys[37] || keys[65])) { objects[0].turnrate = -1; }
-  if (keys && (keys[39] || keys[68])) { objects[0].turnrate = 1; }
-  objects[1].velocityRamp = time;
+  if (keys && (keys[40] || keys[83])) { player.velocity *= 0.95; }
+  if (keys && (keys[38] || keys[87])) { player.velocity += 0.05; }
+  if (keys && (keys[37] || keys[65])) { player.turnrate = -1; }
+  if (keys && (keys[39] || keys[68])) { player.turnrate = 1; }
+  missile.velocityRamp = time;
   missileGuide();
   for (let obj of objects) {
     //obj.theta %= (2 * Math.PI);
-    obj.x += obj.v * Math.cos(obj.theta);
-    obj.y += obj.v * Math.sin(obj.theta);
+    obj.xCoordinate += obj.velocity * Math.cos(obj.atAngle);
+    obj.yCoordinate += obj.velocity * Math.sin(obj.atAngle);
   }
 }
 
@@ -170,10 +171,10 @@ function render() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let obj of objects) {
     ctx.save();
-    ctx.translate(obj.x, obj.y);
-    ctx.rotate(obj.theta);
-    ctx.fillStyle = obj.color;
-    ctx.fillRect((obj.sizex / -2), (obj.sizey / -2), obj.sizex, obj.sizey);
+    ctx.translate(obj.xCoordinate, obj.yCoordinate);
+    ctx.rotate(obj.atAngle);
+    ctx.fillStyle = obj.background;
+    ctx.fillRect((obj.width / -2), (obj.height / -2), obj.width, obj.height);
     ctx.restore();
   }
 }
@@ -184,7 +185,7 @@ function gameLoop() {
   outOfBounds();
   requestAnimationFrame(gameLoop);
   time++;
-  if (objects[1].v < 0) { winGame(); }
+  if (missile.velocity < 0) { winGame(); }
 }
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -198,18 +199,7 @@ window.addEventListener("DOMContentLoaded", function () {
   retreiveHighScore();
   highScoreCounter.innerText = `Highscore: ${highScore}`;
 
-  // Objects[0] refers to properties of the player
-  // Objects[1] refers to properties of the missile
-  // theta is the rotation of the player
-
-  // Please try to transition the current properties into this more legible layout
-  // To call a value, use the syntax: 
-  // properties(player.velocity)
-  // (for example) rather than objects[0].v, which isn't very informative
-
-  let properties = ['player', 'missile'];
-
-  let player = {
+  player = {
     xCoordinate: canvas.width / 2,
     yCoordinate: canvas.height / 2,
     width: 100,
@@ -223,7 +213,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  let missile = {
+  missile = {
     xCoordinate: 20,
     yCoordinate: canvas.height / 2,
     width: 30,
@@ -239,7 +229,7 @@ window.addEventListener("DOMContentLoaded", function () {
       this.velocity *= (0.984375 ** Math.abs(command));
     }
   };
-  
+
   objects = [player, missile];
 
   gameLoop();
