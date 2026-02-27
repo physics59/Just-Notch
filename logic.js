@@ -12,6 +12,8 @@ let highScore = 0;
 let player;
 let missile;
 let objects;
+let sideFacing;
+let sideClosest;
 
 function determineMobile() {
   if (!isTouchOnly) {
@@ -90,27 +92,72 @@ function recenter() {
   player.atAngle = 0;
 }
 
+function findSideClosest {  // Redundant function, might use later for escaping outOfBounds()
+  let distanceLeft = player.xCoordinate;
+  let distanceRight = canvas.width - player.xCoordinate;
+  let distanceBottom = player.yCoordinate;
+  let distanceTop = canvas.height - player.yCoordinate; 
+
+  // Couldn't get these to work usefully, might want to consider later
+  let closestToX = Math.min(distanceLeft, distanceRight);
+  let closestToY = Math.min(distanceTop, distanceBottom);
+
+  if (distanceBottom <= (canvas.width / 2)) {
+    sideClosest = 'bottom';
+  } elif (distanceBottom > (canvas.width / 2)) {
+    sideClosest = 'top';
+  }
+
+  if (distanceLeft <= (canvas.width / 2)) {
+    sideClosest = 'left';
+  } elif (distanceLeft > (canvas.width / 2)) {
+    sideClosest = 'right';
+  }
+
+  return sideClosest;
+}
+
+function findSideFacing {  // Also redundant, might use later for escaping outOfBounds()
+  let sideFacing;
+
+  if (player.atAngle <= 180) {
+    sideFacing = bottom;
+  } elif (player.atAngle > 180) {
+    sideFacing = top;
+  }
+}
+
+function escapeBounds() {
+  // Need to work on this
+}
+
 function outOfBounds() {
   const boundDistance = 100;
 
+  // virtualDistance was aadded because average speed is 5px/s (hence multiplication by 5)
+
   if (player.xCoordinate > (canvas.width - boundDistance)) {
     let playerDistance = canvas.width - player.xCoordinate;
-    let speedScale = playerDistance / boundDistance;
+    let virtualDistance = playerDistance * 5;
+    let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
-  }
-  if (player.xCoordinate < boundDistance) {
+
+  } elif (player.xCoordinate < boundDistance) {
     let playerDistance = player.xCoordinate;
-    let speedScale = playerDistance / boundDistance;
+    let virtualDistance = playerDistance * 5;
+    let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
-  }
-  if (player.yCoordinate > (canvas.height -boundDistance)) {
+
+  } elif (player.yCoordinate > (canvas.height - boundDistance)) {
     let playerDistance = canvas.height - player.yCoordinate;
-    let speedScale = playerDistance / boundDistance;
+    let virtualDistance = playerDistance * 5;
+    let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
-  }
-  if (player.yCoordinate <boundDistance) {
+
+  } elif (player.yCoordinate < boundDistance) {
     let playerDistance = player.yCoordinate;
-    let speedScale = playerDistance / boundDistance;
+    let virtualDistance = playerDistance * 5;
+    let speedScale = virtualDistance / boundDistance;
     player.velocity = speedScale * player.velocity;
   }
 }
@@ -176,6 +223,7 @@ function render() {
     ctx.fillStyle = obj.background;
     ctx.fillRect((obj.width / -2), (obj.height / -2), obj.width, obj.height);
     ctx.restore();
+    console.log('');
   }
 }
 
