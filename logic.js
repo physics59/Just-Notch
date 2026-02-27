@@ -164,7 +164,7 @@ function rebound() {
 }
 
 function detectRebound() {
-  if (canvas.height == player.xCoordinate || canvas.width == player.yCoordinate || player.xCoordinate == 0 || player.yCoordinate == 0) {
+  if (canvas.height == player.yCoordinate || canvas.width == player.xCoordinate || player.xCoordinate == 0 || player.yCoordinate == 0) {
     rebound()
   }
 }
