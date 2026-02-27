@@ -106,13 +106,13 @@ function findSideClosest() {
 
   if (distanceBottom <= (canvas.width / 2)) {
     sideClosest = 'bottom';
-  } elif (distanceBottom > (canvas.width / 2)) {
+  } else if (distanceBottom > (canvas.width / 2)) {
     sideClosest = 'top';
   }
 
   if (distanceLeft <= (canvas.width / 2)) {
     sideClosest = 'left';
-  } elif (distanceLeft > (canvas.width / 2)) {
+  } else if (distanceLeft > (canvas.width / 2)) {
     sideClosest = 'right';
   }
 
