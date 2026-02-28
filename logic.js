@@ -185,6 +185,14 @@ function saveTipPreference() {
   closeTip()
 }
 
+function updateDevTools() {
+  document.getElementById("pv").textContent = player.velocity;
+  document.getElementById("px").textContent = player.xCoordinate;
+  document.getElementById("py").textContent = player.yCoordinate;
+  document.getElementById("pv").textContent = missile.velocity;
+  document.getElementById("px").textContent = missile.xCoordinate;
+  document.getElementById("py").textContent = missile.yCoordinate;
+}
 
 function outOfBounds() {
   const boundDistance = 100;
@@ -331,6 +339,7 @@ function gameLoop() {
   update();
   render();
   detectRebound();
+  updateDevTools();
   requestAnimationFrame(gameLoop);
   time++;
   if (missile.velocity < 0) { winGame(); }
