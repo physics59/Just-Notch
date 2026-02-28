@@ -123,12 +123,41 @@ function outOfBounds() {
 }
 
 function rebound() {
+  findSideClosest()
+  if (sideClosest == 'left' || sideClosest == 'right') {
+    player.atAngle = Math.PI - player.atAngle;
+  }
+
+  if (sideClosest == 'top' || sideClosest == 'bottom') {
+    player.atAngle = -player.atAngle;
+  }
   player.velocity = player.velocity / 2;
-  player.atAngle = 360 - player.atAngle;
+}
+
+function findSideClosest() { 
+  let distanceLeft = player.xCoordinate;
+  let distanceRight = canvas.width - player.xCoordinate;
+  let distanceBottom = player.yCoordinate;
+  let distanceTop = canvas.height - player.yCoordinate; 
+
+  let closestToSideCheck = Math.min(distanceLeft, distanceRight, distanceTop, distanceBottom);
+
+  if (closestToSideCheck == distanceLeft) {
+    sideClosest = 'left';
+  } else if (closestToSideCheck == distanceRight) {
+    sideClosest = 'right';
+  } else if (closestToSideCheck == distanceTop) {
+    sideClosest = 'top';
+  } else if (closestToSideCheck == distanceBottom)
+    sideClosest = 'bottom';
+
+  return sideClosest;
 }
 
 function detectRebound() {
-  if (canvas.height == player.yCoordinate || canvas.width == player.xCoordinate || player.xCoordinate == 0 || player.yCoordinate == 0) {
+  let playerX = parseInt(player.xCoordinate)
+  let playerY = parseInt(player.yCoordinate)
+  if ((canvas.height-5) <= playerY || (canvas.width - 5) <= playerX || playerX <= 5 || playerY <= 5) {
     rebound()
   }
 }
