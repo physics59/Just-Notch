@@ -112,6 +112,7 @@ span {
   width: 72px;
   border-radius: 10px;
   position: relative;
+  font-weight: 500;
 }
 
 .button::before {
