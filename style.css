@@ -148,6 +148,7 @@ span {
   font-size: 0em;
   font-weight: 800;
   transform: translateX(-5px);
+  font-family: system-ui, sans-serif;
 }
 
 .button:hover::after {
