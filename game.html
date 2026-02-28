@@ -19,6 +19,32 @@
     </details>
   </div>
 
+  <!--Developer tools, might become togglable in the future-->
+
+  <div id="main">
+      <div class="control">
+        <div id="mainheader" class="dragbox"></div>
+        <a class="button" onclick = "closeWindow()"> </a>
+      </div>
+      <div class="content">
+        <h1>Developer Info</h1>
+
+        <span>player.velocity = 0</span>
+        <span>player.xCoordinate = 0</span>
+        <span>player.yCoordinate = 0</span>
+        <span>missile.xCoordinate = 0</span>
+        <span>missile.yCoordinate = 0</span>
+        <span>missile.velocity = 0</span>
+      </div>
+      
+    <div id="popup">
+      <div class="content tip" style="background-color: transparent;">You can drag this window around by grabbing and moving the light gray bar on the top
+        <button type="button" class="cancel" onclick="closeTip()">Dismiss Tip</button>
+        <a class="permaDismiss" onclick="confirmPermClose()">Don't show this again</a>
+      </div>
+    </div>
+ </div>
+
     <canvas style=" background-color: #65cbf3;" id="gameCanvas"></canvas>
     <!--minimap canvas goes here-->
     <!--PLEASE DO NOT PUT THESE IN RANDOM DIVS-->

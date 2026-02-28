@@ -41,6 +41,147 @@ body {
 
 #dropdown:hover {cursor: pointer;}
 
+/* Developer tools styling */
+
+body {
+  font-family: monospace, sans-serif;
+  color: white;
+  position: fixed;
+
+}
+
+h1 {
+  font-size: 16px;
+  font-family: system-ui;
+}
+
+span {
+  background-color: var(--secondcolor);
+  border-radius: 3px;
+  font-family: monospace, sans-serif;
+  margin-right: 10px;
+  font-size: 14px;
+  height: max-content;
+  width: max-content;
+  margin-bottom: 0;
+  padding: 3px 10px;
+}
+
+#main {
+  width: 300px;
+  height: max-content;
+  border-radius: 10px;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  display: block;
+}
+
+.control {
+  background-color: var(--secondcolor);
+  height: 35px;
+  width: calc(100% - 12px);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: right;
+  padding-right: 12px;
+}
+
+.content {
+  padding: 20px;
+  padding-top: 10px;
+  display: grid;
+  row-gap: 10px;
+  border-radius: 0 0 10px 10px;
+  background-color: var(--maincolor);
+}
+
+.dragbox {
+  width: calc(100% - 72px);
+  border-radius: 10px 0 0 0;
+  height: 30px;
+}
+
+.dragbox:hover {
+  cursor: move;
+}
+
+.button {
+  background-color: var(--maincolor); 
+  height: 18px;
+  width: 72px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.button::before {
+  content: 'Close this window';
+  padding: 6px 9px;
+  position: absolute;
+  left: 0;
+  top: -40px;
+  color: white;
+  display: none;
+  background-color: var(--secondcolor);
+  font-family: system-ui;
+  width: max-content;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+.button:hover::before {
+  display: block;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.toggle-input {
+  display: none;
+}
+
+#popup {
+  display: none;
+  background-color: #252529;
+  border-radius: 0 0 10px 10px;
+  margin-top: -10px;
+  font-size: 14px;
+  text-align: center;
+  font-family: system-ui;
+  padding: 10px 0 0 0
+}
+
+.cancel {
+  background-color: var(--secondcolor);
+  border: none;
+  color: white;
+  font-family: system-ui;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+
+.cancel:hover {
+  background-color: #404047;
+  cursor: pointer;
+}
+
+.permaDismiss:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.permaDismiss {
+  color: white;
+  font-size: 10px;
+  text-decoration: none;
+  margin-bottom: -5px;
+}
+
+
 canvas {
   display: block;
 }
