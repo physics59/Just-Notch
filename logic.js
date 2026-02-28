@@ -131,7 +131,7 @@ function rebound() {
   if (sideClosest == 'top' || sideClosest == 'bottom') {
     player.atAngle = -player.atAngle;
   }
-  player.velocity = player.velocity / 2;
+  player.velocity = player.velocity / 5;
 }
 
 function findSideClosest() { 
@@ -157,7 +157,7 @@ function findSideClosest() {
 function detectRebound() {
   let playerX = parseInt(player.xCoordinate)
   let playerY = parseInt(player.yCoordinate)
-  if ((canvas.height - 1) <= playerY || (canvas.width - 1) <= playerX || playerX <= 1 || playerY <= 1) {
+  if (canvas.height <= playerY || canvas.width <= playerX || playerX <= 0 || playerY <= 0) {
     rebound()
   }
 }
