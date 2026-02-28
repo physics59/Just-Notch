@@ -186,12 +186,14 @@ function saveTipPreference() {
 }
 
 function updateDevTools() {
-  document.getElementById("pv").textContent = player.velocity;
-  document.getElementById("px").textContent = player.xCoordinate;
-  document.getElementById("py").textContent = player.yCoordinate;
-  document.getElementById("pv").textContent = missile.velocity;
-  document.getElementById("px").textContent = missile.xCoordinate;
-  document.getElementById("py").textContent = missile.yCoordinate;
+  if (player && missile) {
+    document.getElementById("pv").textContent = Math.round(player.velocity);
+    document.getElementById("px").textContent = Math.round(player.xCoordinate);
+    document.getElementById("py").textContent = Math.round(player.yCoordinate);
+    document.getElementById("mv").textContent = Math.round(missile.velocity);
+    document.getElementById("mx").textContent = Math.round(missile.xCoordinate);
+    document.getElementById("my").textContent = Math.round(missile.yCoordinate);
+  }
 }
 
 function outOfBounds() {

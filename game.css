@@ -89,7 +89,7 @@ span {
   padding: 20px;
   padding-top: 10px;
   display: grid;
-  row-gap: 10px;
+  row-gap: 12px;
   border-radius: 0 0 10px 10px;
   background-color: var(--maincolor);
   font-family: system-ui;
