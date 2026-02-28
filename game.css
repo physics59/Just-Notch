@@ -56,7 +56,7 @@ h1 {
 }
 
 span {
-  background-color: var(--secondcolor);
+  background-color: var(--thirdcolor);
   border-radius: 3px;
   font-family: monospace, sans-serif;
   margin-right: 10px;
@@ -72,13 +72,13 @@ span {
   height: max-content;
   border-radius: 10px;
   position: absolute;
-  top: 20px;
+  top: 200px;
   left: 50px;
   display: block;
 }
 
 .control {
-  background-color: var(--secondcolor);
+  background-color: var(--thirdcolor);
   height: 35px;
   width: calc(100% - 12px);
   border-radius: 10px 10px 0 0;
@@ -124,7 +124,7 @@ span {
   top: -40px;
   color: white;
   display: none;
-  background-color: var(--secondcolor);
+  background-color: var(--thirdcolor);
   font-family: system-ui;
   width: max-content;
   font-size: 14px;
@@ -155,7 +155,7 @@ span {
 }
 
 .cancel {
-  background-color: var(--secondcolor);
+  background-color: var(--thirdcolor);
   border: none;
   color: white;
   font-family: system-ui;
