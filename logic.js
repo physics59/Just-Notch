@@ -187,12 +187,12 @@ function saveTipPreference() {
 
 function updateDevTools() {
   if (player && missile) {
-    document.getElementById("pv").textContent = Math.round(player.velocity);
-    document.getElementById("px").textContent = Math.round(player.xCoordinate);
-    document.getElementById("py").textContent = Math.round(player.yCoordinate);
-    document.getElementById("mv").textContent = Math.round(missile.velocity);
-    document.getElementById("mx").textContent = Math.round(missile.xCoordinate);
-    document.getElementById("my").textContent = Math.round(missile.yCoordinate);
+    document.getElementById("pv").innerHTML = player.velocity.toFixed(2);
+    document.getElementById("px").innerHTML = Math.round(player.xCoordinate);
+    document.getElementById("py").innerHTML = Math.round(player.yCoordinate);
+    document.getElementById("mv").innerHTML = missile.velocity.toFixed(2);
+    document.getElementById("mx").innerHTML = Math.round(missile.xCoordinate);
+    document.getElementById("my").innerHTML = Math.round(missile.yCoordinate);
   }
 }
 
