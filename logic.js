@@ -157,7 +157,7 @@ function findSideClosest() {
 function detectRebound() {
   let playerX = parseInt(player.xCoordinate)
   let playerY = parseInt(player.yCoordinate)
-  if ((canvas.height-5) <= playerY || (canvas.width - 5) <= playerX || playerX <= 5 || playerY <= 5) {
+  if ((canvas.height - 1) <= playerY || (canvas.width - 1) <= playerX || playerX <= 1 || playerY <= 1) {
     rebound()
   }
 }
