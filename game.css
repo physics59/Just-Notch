@@ -43,13 +43,6 @@ body {
 
 /* Developer tools styling */
 
-body {
-  font-family: monospace, sans-serif;
-  color: white;
-  position: fixed;
-
-}
-
 h1 {
   font-size: 16px;
   font-family: system-ui;
@@ -75,6 +68,9 @@ span {
   top: 200px;
   left: 50px;
   display: block;
+  font-family: monospace, sans-serif;
+  color: white;
+  position: fixed;
 }
 
 .control {
@@ -96,6 +92,8 @@ span {
   row-gap: 10px;
   border-radius: 0 0 10px 10px;
   background-color: var(--maincolor);
+  font-family: system-ui;
+  font-weight: 500;
 }
 
 .dragbox {
