@@ -313,11 +313,12 @@ function resetGame() {
 }
 
 function update() {
+  let vDecay = 0.99609375;
   if (keys && (keys[40] || keys[83])) { player.velocity *= 0.95; }
-  if (keys && (keys[38] || keys[87])) { player.velocity += 0.05; }
+  if (keys && (keys[38] || keys[87])) { player.velocity += 0.05; vDecay = 1;}
   if (keys && (keys[37] || keys[65])) { player.turnrate = -1; }
   if (keys && (keys[39] || keys[68])) { player.turnrate = 1; }
-  player.velocity *= 0.99609375;
+  player.velocity *= vDecay;
   missile.velocityRamp = time;
   missileGuide();
   for (let obj of objects) {
