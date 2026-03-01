@@ -207,7 +207,7 @@ span {
   border-radius: 3px;
   background-color: white;
   left: 0;
-  bottom: 0;
+  top: 0;
 }
 
 canvas {
