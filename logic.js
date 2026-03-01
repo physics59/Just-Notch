@@ -254,13 +254,14 @@ function rebound() {
     } else if (sideClosest == 'right') {
       player.atAngle = Math.PI - player.atAngle;
       viewBox.style.borderRight = "4px solid white";
-    } else if (sideClosest == 'top') {
+    } else if (sideClosest == 'bottom') {
       player.atAngle = -player.atAngle;
       viewBox.style.borderBottom = "4px solid white";
-    } else if (sideClosest == 'bottom') {
-      player.velocity = player.velocity / 4;
+    } else if (sideClosest == 'top') {
+      player.atAngle = -player.atAngle;
       viewBox.style.borderTop = "4px solid white";
     }
+    player.velocity = player.velocity / 4;
   } 
 }
 
