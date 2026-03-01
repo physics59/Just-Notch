@@ -68,7 +68,7 @@ function missileGuide() {
   let interceptTime = distance / (objects[1].v + closure);
   let target = tgtDirection + angularVelocity * interceptTime;
   if (/*closure < 1 && closure > -1*/ false) {
-    objects[1].turnrate = 0;
+    missile.turnrate = 0;
   } else {
     missile.turnrate = (target - missile.atAngle) / 2 * Math.PI;
   }
