@@ -209,8 +209,8 @@ function prepareMiniMap() {
 
 function updateMapPlayer() {
   const mapPlayer = document.getElementById("playerIn");
-  mapPlayer.style.left = Math.round(player.xCoordinate / 15) + "px";
-  mapPlayer.style.bottom = Math.round(player.yCoordinate / 15) + "px";
+  mapPlayer.style.left = Math.round((player.xCoordinate / canvas.width) - 2.5) + "px";
+  mapPlayer.style.bottom = Math.round((player.yCoordinate / 15) - 2.5) + "px";
 }
 
 function outOfBounds() {
