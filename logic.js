@@ -256,13 +256,13 @@ function rebound() {
       viewBox.style.borderRight = "4px solid white";
     } else if (sideClosest == 'top') {
       player.atAngle = -player.atAngle;
-      viewBox.style.borderTop = "4px solid white";
+      viewBox.style.borderBottom = "4px solid white";
     } else if (sideClosest == 'bottom') {
       player.velocity = player.velocity / 4;
-      viewBox.style.borderBottom = "4px solid white";
+      viewBox.style.borderTop = "4px solid white";
     }
   } else {
-    viewBox.style.border = "var(--thirdcolor)";
+    viewBox.style.border = "4px solid var(--thirdcolor)";
   }
 }
 
