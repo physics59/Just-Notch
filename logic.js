@@ -286,7 +286,7 @@ function findSideClosest() {
 }
 
 function detectRebound() {
-  const reboundSize = 1;
+  const reboundSize = 5;
 
   let playerX = parseInt(player.xCoordinate);
   let playerY = parseInt(player.yCoordinate);
