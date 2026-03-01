@@ -374,6 +374,7 @@ window.addEventListener("DOMContentLoaded", function () {
   isTouchOnly = window.matchMedia("(hover: none)").matches;
   determineMobile();
   resizeCanvas();
+  prepareMiniMap();
   retreiveTipPreference();
   retreiveHighScore();
   highScoreCounter.innerText = `Highscore: ${highScore}`;
