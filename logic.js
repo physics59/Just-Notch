@@ -43,11 +43,10 @@ function determineMobile() {
 }
 
 function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
 
-window.addEventListener('resize', resizeCanvas);
 window.addEventListener('keydown', function (event) {
   if (event.key == "m") {
     isTouchOnly = !isTouchOnly;
@@ -356,37 +355,38 @@ function update() {
 }
 
 function render() {
-  //if(50 > objects[0].x || (canvas.width - 50) < objects[0].x) {ctx.scale((Math.abs(objects[0].v * Math.cos(objects[0].theta)), 0))}
-  //if(50 > objects[0].y || (canvas.height - 50) < objects[0].y) {ctx.scale(0, Math.abs((objects[0].v * Math.sin(objects[0].theta))))}
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (let obj of objects) {
-    ctx.save();
-    ctx.translate(obj.xCoordinate, obj.yCoordinate);
-    ctx.rotate(obj.atAngle);
-    ctx.fillStyle = obj.background;
-    ctx.fillRect((obj.width / -2), (obj.height / -2), obj.width, obj.height);
-    ctx.restore();
-  }
+  //if(50 > objects[0].x || (canvas.width - 50) < objects[0].x) {ctx.scale((Math.abs(objects[0].v * Math.cos(objects[0].theta)), 0))}
+  //if(50 > objects[0].y || (canvas.height - 50) < objects[0].y) {ctx.scale(0, Math.abs((objects[0].v * Math.sin(objects[0].theta))))}
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let obj of objects) {
+    ctx.save();
+    ctx.translate(obj.xCoordinate, obj.yCoordinate);
+    ctx.rotate(obj.atAngle);
+    ctx.fillStyle = obj.background;
+    ctx.fillRect((obj.width / -2), (obj.height / -2), obj.width, obj.height);
+    ctx.restore();
+  }
 }
 
 function gameLoop() {
-  update();
-  render();
+  update();
+  render();
   detectRebound();
   updateDevTools();
-  requestAnimationFrame(gameLoop);
-  time++;
-  if (missile.velocity < 0) { winGame(); }
+  requestAnimationFrame(gameLoop);
+  time++;
+  if (missile.velocity < 0) { winGame(); }
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  canvas = document.getElementById('gameCanvas');
-  ctx = canvas.getContext('2d');
-  missileCounter = document.getElementById('evasion');
+  canvas = document.getElementById('gameCanvas');
+  window.addEventListener('resize', resizeCanvas);
+  ctx = canvas.getContext('2d');
+  missileCounter = document.getElementById('evasion');
   highScoreCounter = document.getElementById('highscore');
-  isTouchOnly = window.matchMedia("(hover: none)").matches;
-  determineMobile();
-  resizeCanvas();
+  isTouchOnly = window.matchMedia("(hover: none)").matches;
+  determineMobile();
+  resizeCanvas();
   prepareMiniMap();
   retreiveTipPreference();
   retreiveHighScore();
