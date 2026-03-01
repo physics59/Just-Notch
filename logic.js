@@ -58,7 +58,7 @@ window.addEventListener('keydown', function (event) {
 
 window.addEventListener('keydown', function (event) {
   if (event.key == "z") {
-    document.getElementById("main").style.display = "none" 
+    document.getElementById("main").style.display = "block" 
     // turn off the dev tools with Z
   }
 })
