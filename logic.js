@@ -200,9 +200,11 @@ function updateDevTools() {
 }
 
 function prepareMiniMap() {
-  const viewBox = document.getElementById("viewbox");
-  viewBox.style.width = Math.round(canvas.width / 15) + "px";
-  viewBox.style.height = Math.round(canvas.height / 15) + "px";
+  if (canvas.width && canvas.height) {
+    const viewBox = document.getElementById("viewbox");
+    viewBox.style.width = Math.round(canvas.width / 15) + "px";
+    viewBox.style.height = Math.round(canvas.height / 15) + "px";
+  }
 }
 
 function updateMapPlayer() {
