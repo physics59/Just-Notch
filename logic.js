@@ -295,6 +295,7 @@ function detectRebound() {
     withinBounds = true;
   } else {
     withinBounds = false;
+    const viewBox = document.getElementById("viewbox");
     viewBox.style.border = "4px solid var(--thirdcolor)";
   }
 }
