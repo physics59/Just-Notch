@@ -14,6 +14,7 @@ let missile;
 let objects;
 let withinBounds = false;
 let tipPreference;
+canvas = document.getElementById('gameCanvas');
 
 function determineMobile() {
   if (!isTouchOnly) {
@@ -284,7 +285,7 @@ function findSideClosest() {
 }
 
 function detectRebound() {
-  const reboundSize = 5;
+  const reboundSize = 1;
 
   let playerX = parseInt(player.xCoordinate);
   let playerY = parseInt(player.yCoordinate);
@@ -295,6 +296,7 @@ function detectRebound() {
     withinBounds = true;
     if (withinBounds != reboundPast) {
     rebound()
+    }
   } else {
     withinBounds = false;
     const viewBox = document.getElementById("viewbox");
@@ -379,7 +381,6 @@ function gameLoop() {
 }
 
 window.addEventListener("DOMContentLoaded", function () {
-  canvas = document.getElementById('gameCanvas');
   window.addEventListener('resize', resizeCanvas);
   ctx = canvas.getContext('2d');
   missileCounter = document.getElementById('evasion');
