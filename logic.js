@@ -201,7 +201,7 @@ function updateDevTools() {
 
 function prepareMiniMap() {
   const viewBox = document.getElementsByClassName("viewbox")[0];
-  viewBox.style.width = (canas.width / 10) + "px";
+  viewBox.style.width = (canvas.width / 10) + "px";
   viewBox.style.height = (canvas.height / 10) + "px";
 }
 
@@ -373,7 +373,6 @@ window.addEventListener("DOMContentLoaded", function () {
   determineMobile();
   resizeCanvas();
   retreiveTipPreference();
-  prepareMiniMap();
   retreiveHighScore();
   highScoreCounter.innerText = `Highscore: ${highScore}`;
 
