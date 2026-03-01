@@ -261,6 +261,8 @@ function rebound() {
       player.velocity = player.velocity / 4;
       viewBox.style.borderBottom = "4px solid white";
     }
+  } else {
+    viewBox.style.border = "var(--thirdcolor)";
   }
 }
 
