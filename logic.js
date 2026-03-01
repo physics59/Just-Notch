@@ -261,9 +261,7 @@ function rebound() {
       player.velocity = player.velocity / 4;
       viewBox.style.borderTop = "4px solid white";
     }
-  } else {
-    viewBox.style.border = "4px solid var(--thirdcolor)";
-  }
+  } 
 }
 
 function findSideClosest() { 
@@ -297,6 +295,7 @@ function detectRebound() {
     withinBounds = true;
   } else {
     withinBounds = false;
+    viewBox.style.border = "4px solid var(--thirdcolor)";
   }
 }
 
