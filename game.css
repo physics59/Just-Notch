@@ -185,6 +185,30 @@ span {
   margin-bottom: -5px;
 }
 
+.viewbox {
+  width: 150px;
+  height: 80px;
+  border: 4px solid var(--secondcolor);
+  border-radius: 3px;
+  position: relative;
+}
+
+#viewCont {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+#playerIn {
+  position: absolute;
+  width: 5px;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background-color: white;
+  left: 0;
+  bottom: 0;
+}
 
 canvas {
   display: block;

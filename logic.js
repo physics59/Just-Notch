@@ -195,8 +195,20 @@ function updateDevTools() {
     document.getElementById("mx").innerHTML = Math.round(missile.xCoordinate);
     document.getElementById("my").innerHTML = Math.round(missile.yCoordinate);
     document.getElementById("ma").innerHTML = ((missile.atAngle / Math.PI) * 180).toFixed(2);
-    
   }
+  updateMapPlayer();
+}
+
+function prepareMiniMap() {
+  const viewBox = document.getElementByClassNames("viewbox")[0];
+  viewBox.style.width = (canas.width / 10) + "px";
+  viewBox.style.height = (canvas.height / 10) + "px";
+}
+
+function updateMapPlayer() {
+  const mapPlayer = document.getElementById("playerIn");
+  mapPlayer.style.left = (player.xCoordinate / 10) + "px";
+  mapPlayer.style.bottom = (player.yCoordinate / 10) + "px";
 }
 
 function outOfBounds() {
@@ -361,6 +373,7 @@ window.addEventListener("DOMContentLoaded", function () {
   determineMobile();
   resizeCanvas();
   retreiveTipPreference();
+  prepareMiniMap();
   retreiveHighScore();
   highScoreCounter.innerText = `Highscore: ${highScore}`;
 
