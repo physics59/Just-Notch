@@ -246,13 +246,21 @@ function outOfBounds() {
 
 function rebound() {
   findSideClosest()
+  const viewBox = document.getElementById("viewbox");
   if (withinBounds == true) {
-    if (sideClosest == 'left' || sideClosest == 'right') {
+    if (sideClosest == 'left') {
       player.atAngle = Math.PI - player.atAngle;
-    } else if (sideClosest == 'top' || sideClosest == 'bottom') {
+      viewBox.style.borderLeft = "4px solid white";
+    } else if (sideClosest == 'right') {
+      player.atAngle = Math.PI - player.atAngle;
+      viewBox.style.borderRight = "4px solid white";
+    } else if (sideClosest == 'top') {
       player.atAngle = -player.atAngle;
+      viewBox.style.borderTop = "4px solid white";
+    } else if (sideClosest == 'bottom') {
+      player.velocity = player.velocity / 4;
+      viewBox.style.borderBottom = "4px solid white";
     }
-    player.velocity = player.velocity / 4;
   }
 }
 
