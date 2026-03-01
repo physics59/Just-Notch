@@ -278,9 +278,9 @@ function findSideClosest() {
   } else if (closestToSideCheck == distanceRight) {
     sideClosest = 'right';
   } else if (closestToSideCheck == distanceTop) {
-    sideClosest = 'top';
-  } else if (closestToSideCheck == distanceBottom)
     sideClosest = 'bottom';
+  } else if (closestToSideCheck == distanceBottom)
+    sideClosest = 'top';
 
   return sideClosest;
 }
