@@ -200,15 +200,15 @@ function updateDevTools() {
 }
 
 function prepareMiniMap() {
-  const viewBox = document.getElementsByClassName("viewbox")[0];
-  viewBox.style.width = (canvas.width / 10) + "px";
-  viewBox.style.height = (canvas.height / 10) + "px";
+  const viewBox = document.getElementById("viewbox");
+  viewBox.style.width = Math.round(canvas.width / 15) + "px";
+  viewBox.style.height = Math.round(canvas.height / 15) + "px";
 }
 
 function updateMapPlayer() {
   const mapPlayer = document.getElementById("playerIn");
-  mapPlayer.style.left = (player.xCoordinate / 10) + "px";
-  mapPlayer.style.bottom = (player.yCoordinate / 10) + "px";
+  mapPlayer.style.left = Math.round(player.xCoordinate / 15) + "px";
+  mapPlayer.style.bottom = Math.round(player.yCoordinate / 15) + "px";
 }
 
 function outOfBounds() {

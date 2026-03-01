@@ -185,7 +185,7 @@ span {
   margin-bottom: -5px;
 }
 
-.viewbox {
+#viewbox {
   width: 150px;
   height: 80px;
   border: 4px solid var(--thirdcolor);
