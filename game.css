@@ -106,6 +106,10 @@ span {
   cursor: move;
 }
 
+.dataAfter {
+  margin-left: 10px;
+}
+
 .button {
   background-color: var(--maincolor); 
   height: 18px;
