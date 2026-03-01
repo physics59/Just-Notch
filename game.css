@@ -52,7 +52,7 @@ span {
   background-color: var(--thirdcolor);
   border-radius: 3px;
   font-family: monospace, sans-serif;
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: 14px;
   height: max-content;
   width: max-content;
@@ -107,7 +107,8 @@ span {
 }
 
 .dataAfter {
-  margin-left: 10px;
+  margin-left: 2px;
+  margin-right: 0;
 }
 
 .button {
