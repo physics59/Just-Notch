@@ -65,7 +65,7 @@ function missileGuide() {
   if (distance < 30) { loseGame(); }
   let closure = player.velocity * Math.cos(tgtDirection - player.atAngle);
   let angularVelocity = tgtDirection - lastDirection;
-  let interceptTime = distance / (objects[1].v + closure);
+  let interceptTime = distance / (missile.velocity + closure);
   let target = tgtDirection + angularVelocity * interceptTime;
   if (/*closure < 1 && closure > -1*/ false) {
     missile.turnrate = 0;
