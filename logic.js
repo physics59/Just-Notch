@@ -290,9 +290,12 @@ function detectRebound() {
   let playerX = parseInt(player.xCoordinate);
   let playerY = parseInt(player.yCoordinate);
 
+  let reboundPast = withinBounds;
+
   if ((canvas.height - reboundSize) <= playerY || (canvas.width - reboundSize) <= playerX || playerX <= reboundSize || playerY <= reboundSize) {
-    rebound()
     withinBounds = true;
+    if (withinBounds != reboundPast) {
+    rebound()
   } else {
     withinBounds = false;
     const viewBox = document.getElementById("viewbox");
