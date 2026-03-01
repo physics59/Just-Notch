@@ -200,7 +200,7 @@ function updateDevTools() {
 }
 
 function prepareMiniMap() {
-  const viewBox = document.getElementByClassNames("viewbox")[0];
+  const viewBox = document.getElementsByClassName("viewbox")[0];
   viewBox.style.width = (canas.width / 10) + "px";
   viewBox.style.height = (canvas.height / 10) + "px";
 }

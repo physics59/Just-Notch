@@ -188,7 +188,7 @@ span {
 .viewbox {
   width: 150px;
   height: 80px;
-  border: 4px solid var(--secondcolor);
+  border: 4px solid var(--thirdcolor);
   border-radius: 3px;
   position: relative;
 }
