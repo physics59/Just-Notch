@@ -56,6 +56,13 @@ window.addEventListener('keydown', function (event) {
   }
 })
 
+window.addEventListener('keydown', function (event) {
+  if (event.key == "z") {
+    document.getElementById("main").style.display = "none" 
+    // turn off the dev tools with Z
+  }
+})
+
 function missileGuide() {
   let deltax = player.xCoordinate - missile.xCoordinate;
   let deltay = player.yCoordinate - missile.yCoordinate;
