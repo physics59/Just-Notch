@@ -388,7 +388,7 @@ function render() {
   //if(50 > objects[0].y || (canvas.height - 50) < objects[0].y) {ctx.scale(0, Math.abs((objects[0].v * Math.sin(objects[0].theta))))}
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let cloud of clouds) {
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "light grey";
     ctx.drawImage(img, cloud.xCoordinate, cloud.yCoordinate, 250, 150);
   }
   for (let obj of objects) {
