@@ -344,6 +344,12 @@ function updateHighScore() {
   return highScore;
 }
 
+function addCloud() {
+  let yCoordinate = Math.random() * canvas.height;
+  let cloudTemplate = { xCoordinate: -250, yCoordinate: yCoordinate, };
+  clouds.push(cloudTemplate);
+}
+
 function resetGame() {
   missile.xCoordinate = -200;
   missile.yCoordinate = (canvas.height / 2);
@@ -372,12 +378,19 @@ function update() {
     obj.xCoordinate += obj.velocity * Math.cos(obj.atAngle);
     obj.yCoordinate += obj.velocity * Math.sin(obj.atAngle);
   }
+  for (let cloud of clouds) {
+    cloud.xCoordinate += wind;
+  }
 }
 
 function render() {
   //if(50 > objects[0].x || (canvas.width - 50) < objects[0].x) {ctx.scale((Math.abs(objects[0].v * Math.cos(objects[0].theta)), 0))}
   //if(50 > objects[0].y || (canvas.height - 50) < objects[0].y) {ctx.scale(0, Math.abs((objects[0].v * Math.sin(objects[0].theta))))}
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (let cloud of clouds) {
+    ctx.fillStyle = "white";
+    ctx.drawImage(img, cloud.xCoordinate, cloud.yCoordinate, 250, 150);
+  }
   for (let obj of objects) {
     ctx.save();
     ctx.translate(obj.xCoordinate, obj.yCoordinate);
@@ -411,6 +424,8 @@ window.addEventListener("DOMContentLoaded", function () {
   retreiveHighScore();
   highScoreCounter.innerText = `Highscore: ${highScore}`;
 
+  setInterval(addCloud, 5000);
+  
   player = {
     xCoordinate: canvas.width / 2,
     yCoordinate: canvas.height / 2,
