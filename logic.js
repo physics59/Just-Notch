@@ -16,6 +16,16 @@ let withinBounds = false;
 let tipPreference;
 canvas = document.getElementById('gameCanvas');
 
+let img = document.createElement('img');
+img.src = 'cloudfloat.png';
+
+const wind = 0.5;
+const clouds = [
+  { xCoordinate: 0, yCoordinate: 40, },
+  { xCoordinate: -100, yCoordinate: 160, },
+  { xCoordinate: 300, yCoordinate: 500, },
+];
+
 function determineMobile() {
   if (!isTouchOnly) {
     document.getElementById("keycontain2").style.display = "none";
