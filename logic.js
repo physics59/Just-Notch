@@ -461,4 +461,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
   gameLoop();
 
-  })
+  }) 
