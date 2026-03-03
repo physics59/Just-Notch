@@ -318,7 +318,7 @@ function detectRebound() {
   } else {
     withinBounds = false;
     const viewBox = document.getElementById("viewbox");
-    viewBox.style.border = "4px solid var(--thirdcolor)";
+    viewBox.style.border = "4px solid var(--highlightcolor)";
   }
 }
 
