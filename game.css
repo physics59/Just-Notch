@@ -2,7 +2,7 @@
   --maincolor: #2A2A30;
   --themecolor: #65cbf3;
   --highlightcolor: #3A3A40;
-  --negcolor: #4A1104;
+  --negcolor: #a1162e;
 }
 
 body {
@@ -129,7 +129,7 @@ span {
   padding: 6px 9px;
   position: absolute;
   left: 0;
-  top: -40px;
+  top: -50px;
   color: white;
   font-weight: 500;
   display: none;
