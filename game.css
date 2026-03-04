@@ -37,6 +37,16 @@ body {
 #controldrop {
   position: absolute;
   width: max-content;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(256, 256, 256, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  transform: translateY(20px);
+}
+
+#controldrop:focus-within {
+  transform: translateY(10px);
 }
 
 #dropdown {
