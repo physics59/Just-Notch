@@ -13,7 +13,7 @@ let tipPreference;
 const missionArea = 3600;
 const samCount = 3;
 let img = document.createElement('img');
-img.src = 'C:\\Users\\29bartranc\\OneDrive - region10ct.org\\Documents\\Coding In or Out\\Just Notch\\cloud-svgrepo-com.svg';
+img.src = 'cloud-svgrepo-com.svg';
 const wind = 0.5;
  
 class Cloud {
