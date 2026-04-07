@@ -1,236 +1,251 @@
 :root {
-  --maincolor: #2A2A30;
-  --themecolor: #65cbf3;
-  --highlightcolor: #3A3A40;
-  --negcolor: #a1162e;
+  --maincolor: #2A2A30;
+  --themecolor: #65cbf3;
+  --highlightcolor: #3A3A40;
+  --negcolor: #a1162e;
 }
-
+ 
 body {
-  margin: 0;
-  background-color: #65cbf3;
-  font-family: system-ui;
-  font-weight: 600;
+  margin: 0;
+  background-color: #65cbf3;
+  font-family: system-ui;
+  font-weight: 600;
 }
-
+ 
 .container {
-  display: flex;
-  padding: 10px;
-  width: 100%;
-  z-index: 2;
-  box-shadow: 0 4px 13px 0 rgba(122, 122, 122, 0.2);
-  align-items: center;
-  max-height: 50px;
-  position: fixed;
-  backdrop-filter: blur(5px);
-  background: rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(256, 256, 256, 0.3);
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  z-index: 2;
+  box-shadow: 0 4px 13px 0 rgba(122, 122, 122, 0.2);
+  align-items: center;
+  max-height: 50px;
+  position: fixed;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(256, 256, 256, 0.3);
 }
-
+ 
 .infotop {
-  color: var(--maincolor);
-  font-size: 1rem;
-  margin-left: 15px;
-  border-radius: 10px;
-  padding: 10px 20px;
+  color: var(--maincolor);
+  font-size: 1rem;
+  margin-left: 15px;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
-
+ 
 #controldrop {
-  position: absolute;
-  width: max-content;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(256, 256, 256, 0.3);
-  padding: 20px;
-  border-radius: 10px;
-  transition-duration: 0.3s;
-  transform: translateY(20px);
+  position: absolute;
+  width: max-content;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(256, 256, 256, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+  transform: translateY(20px);
 }
-
+ 
 #controldrop:focus-within {
-  transform: translateY(10px);
+  transform: translateY(10px);
 }
-
+ 
 #dropdown {
-  position: relative;
+  position: relative;
 }
-
-#dropdown:hover {cursor: pointer;}
-
+ 
+#dropdown:hover {
+  cursor: pointer;
+  color: magenta;
+}
+ 
 /* Developer tools styling */
-
+ 
 h1 {
-  font-size: 16px;
-  font-family: system-ui;
+  font-size: 16px;
+  font-family: system-ui;
 }
-
+ 
 span {
-  background-color: var(--highlightcolor);
-  border-radius: 3px;
-  font-family: monospace, sans-serif;
-  margin-right: 5px;
-  font-size: 14px;
-  height: max-content;
-  width: max-content;
-  margin-bottom: 0;
-  padding: 3px 10px;
+  background-color: var(--highlightcolor);
+  border-radius: 3px;
+  font-family: monospace, sans-serif;
+  margin-right: 5px;
+  font-size: 14px;
+  height: max-content;
+  width: max-content;
+  margin-bottom: 0;
+  padding: 3px 10px;
 }
-
+ 
 #main {
-  width: 300px;
-  height: max-content;
-  border-radius: 10px;
-  position: absolute;
-  top: 200px;
-  left: 50px;
-  display: block;
-  font-family: monospace, sans-serif;
-  color: white;
-  position: fixed;
+  width: 300px;
+  height: max-content;
+  border-radius: 10px;
+  position: absolute;
+  top: 200px;
+  left: 50px;
+  display: block;
+  font-family: monospace, sans-serif;
+  color: white;
+  position: fixed;
 }
-
+ 
 .control {
-  background-color: var(--highlightcolor);
-  height: 35px;
-  width: calc(100% - 12px);
-  border-radius: 10px 10px 0 0;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  justify-content: right;
-  padding-right: 12px;
+  background-color: var(--highlightcolor);
+  height: 35px;
+  width: calc(100% - 12px);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: right;
+  padding-right: 12px;
 }
-
+ 
 .content {
-  padding: 20px;
-  padding-top: 10px;
-  display: grid;
-  row-gap: 12px;
-  border-radius: 0 0 10px 10px;
-  background-color: var(--maincolor);
-  font-family: system-ui;
-  font-weight: 500;
+  padding: 20px;
+  padding-top: 10px;
+  display: grid;
+  row-gap: 12px;
+  border-radius: 0 0 10px 10px;
+  background-color: var(--maincolor);
+  font-family: system-ui;
+  font-weight: 500;
 }
-
+ 
 .dragbox {
-  width: calc(100% - 72px);
-  border-radius: 10px 0 0 0;
-  height: 30px;
+  width: calc(100% - 72px);
+  border-radius: 10px 0 0 0;
+  height: 30px;
 }
-
+ 
 .dragbox:hover {
-  cursor: move;
+  cursor: move;
 }
-
+ 
 .dataAfter {
-  margin-left: 2px;
-  margin-right: 0;
+  margin-left: 2px;
+  margin-right: 0;
 }
-
+ 
 .button {
-  background-color: var(--maincolor); 
-  height: 18px;
-  width: 72px;
-  border-radius: 10px;
-  position: relative;
-  font-weight: 500;
+  background-color: var(--maincolor);
+  height: 18px;
+  width: 72px;
+  border-radius: 10px;
+  position: relative;
+  font-weight: 500;
 }
-
+ 
 .button::before {
-  content: 'Close this window';
-  padding: 6px 9px;
-  position: absolute;
-  left: 0;
-  top: -50px;
-  color: white;
-  font-weight: 500;
-  display: none;
-  background-color: var(--highlightcolor);
-  font-family: system-ui;
-  width: max-content;
-  font-size: 14px;
-  border-radius: 3px;
+  content: 'Close this window';
+  padding: 6px 9px;
+  position: absolute;
+  left: 0;
+  top: -50px;
+  color: white;
+  font-weight: 500;
+  display: none;
+  background-color: var(--highlightcolor);
+  font-family: system-ui;
+  width: max-content;
+  font-size: 14px;
+  border-radius: 3px;
 }
-
+ 
 .button:hover::before {
-  display: block;
+  display: block;
 }
-
+ 
 .button:hover {
-  cursor: pointer;
-  background-color: var(--negcolor);
+  cursor: pointer;
+  background-color: var(--negcolor);
 }
-
+ 
 .toggle-input {
-  display: none;
+  display: none;
 }
-
+ 
 #popup {
-  display: none;
-  background-color: #252529;
-  border-radius: 0 0 10px 10px;
-  margin-top: -10px;
-  font-size: 14px;
-  text-align: center;
-  font-family: system-ui;
-  padding: 10px 0 0 0
+  display: none;
+  background-color: #252529;
+  border-radius: 0 0 10px 10px;
+  margin-top: -10px;
+  font-size: 14px;
+  text-align: center;
+  font-family: system-ui;
+  padding: 10px 0 0 0
 }
-
+ 
 .cancel {
-  background-color: var(--highlightcolor);
-  border: none;
-  color: white;
-  font-family: system-ui;
-  border-radius: 20px;
-  padding: 10px 15px;
-  margin-top: 10px;
+  background-color: var(--highlightcolor);
+  border: none;
+  color: white;
+  font-family: system-ui;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin-top: 10px;
 }
-
+ 
 .cancel:hover {
-  background-color: #404047;
-  cursor: pointer;
+  background-color: #404047;
+  cursor: pointer;
 }
-
+ 
 .permaDismiss:hover {
-  text-decoration: underline;
-  cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }
-
+ 
 .permaDismiss {
-  color: white;
-  font-size: 10px;
-  text-decoration: none;
-  margin-bottom: -5px;
+  color: white;
+  font-size: 10px;
+  text-decoration: none;
+  margin-bottom: -5px;
 }
-
+ 
 #viewbox {
-  width: 150px;
-  height: 80px;
-  border: 4px solid var(--highlightcolor);
-  border-radius: 3px;
-  position: relative;
+  width: 150px;
+  height: 80px;
+  border: 4px solid var(--highlightcolor);
+  border-radius: 3px;
+  position: relative;
 }
-
+ 
 #viewCont {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 15px;
 }
-
+ 
 #playerIn {
-  position: absolute;
-  width: 5px;
-  aspect-ratio: 1;
-  border-radius: 3px;
-  background-color: white;
-  left: 0;
-  top: 0;
+  position: absolute;
+  width: 5px;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background-color: white;
+  left: 0;
+  top: 0;
 }
-
+ 
 canvas {
   display: block;
 }
  
+#minimap {
+  position: fixed;
+  /* Stays in place when scrolling */
+  bottom: 15px;
+  left: 15px;
+  background: #404060;
+  border: 3px solid black;
+  width: 300px;
+  height: 200px;
+}
+ 
 /* Key styling */
+ 
 .key {
   width: 50px;
   height: 50px;
@@ -324,17 +339,9 @@ canvas {
 #keyleft {
   transform: rotate(180deg);
 }
+ 
 #evasion {
   z-index: 10;
-  position: fixed;
   top: 20px;
   left: 20px;
 }
- 
-/*.keyright {}*/
-/* Turn off on larger displays */
-/*@media screen and (min-width: 800px) {
-  .keycontain2 {
-    display: none;
-  }
-}*/
