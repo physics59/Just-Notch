@@ -1,83 +1,88 @@
 <!DOCTYPE html>
+
 <html>
 <head>
- <title>Just Notch</title>
- <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Just Notch</title>
+  <link rel="stylesheet" type="text/css" href="game.css" />
 </head>
+  
 <body>
-<div class="container">
-<p class="infotop" id="evasion">Missiles Evaded: 0</p>
-<p class="infotop" id="highscore">Highscore: 0</p>
-<details class="infotop">
-<summary id="dropdown">Keybinds</summary>
-<div class="keys">
-<ul id="controldrop">
-<a>WASD or Arrows for movement</a><br>
-<a>M for toggling mobile controls</a><br>
-<a>Z for turning off dev tools</a>
-</ul>
-</div>
-</details>
-</div>
-<!--Developer tools, might become togglable in the future-->
-<div id="main">
-<div class="control">
-<div id="mainheader" class="dragbox"></div>
-<a class="button" onclick = "closeWindow()"> </a>
-</div>
-<div class="content">
-<h1>Developer Info</h1>
-<div id="viewCont"><div  id="viewbox"><div id="playerIn"></div></div></div>
-<div><span>player.velocity</span>= <span class="dataAfter" id="pv">0</span></div>
-<div><span>player.xCoordinate</span>= <span class="dataAfter" id="px">0</span></div>
-<div><span>player.yCoordinate</span>= <span class="dataAfter" id="py">0</span></div>
-<div><span>player.atAngle</span>= <span class="dataAfter" id="pa">0</span></div>
-<div><span>missile.xCoordinate</span>= <span class="dataAfter" id="mx">0</span></div>
-<div><span>missile.yCoordinate</span>= <span class="dataAfter"  id="my">0</span></div>
-<div><span>missile.velocity</span>= <span class="dataAfter" id="mv">0</span></div>
-<div><span>missile.atAngle</span>= <span class="dataAfter" id="ma">0</span></div>
-</div>
-<div id="popup">
-<div class="content tip" style="background-color: transparent;">You can drag this window around by grabbing and moving the light gray bar on the top
-<button type="button" class="cancel" onclick="closeTip()">Dismiss Tip</button>
-<a class="permaDismiss" onclick="confirmPermClose()">Don't show Developer Tips again</a>
-</div>
-</div>
-</div>
- 
-<canvas style=" background-color: #65cbf3;" id="gameCanvas"></canvas>
-<canvas style=" background-color: #2a5e72;" id="minimap"></canvas>
-<!--PLEASE DO NOT PUT THESE IN RANDOM DIVS-->
-<div id="keycontain2">
-<div class="key bottom" id="keyleft">
-<div class="arrow">
-<div class="arrow2"></div>
-<div class="arrow2 arrow3"></div>
-</div>
-</div>
-<div>
-<div class="key" id="keyup">
-<div class="arrow">
-<div class="arrow2"></div>
-<div class="arrow2 arrow3"></div>
-</div>
-</div>
-<div class="key" id="keydown">
-<div class="arrow">
-<div class="arrow2"></div>
-<div class="arrow2 arrow3"></div>
-</div>
-</div>
-</div>
-<div class="key bottom" id="keyright">
-<div class="arrow">
-<div class="arrow2"></div>
-<div class="arrow2 arrow3"></div>
-</div>
-</div>
-</div>
- 
-<script src="index.js"></script>
+  <div class="container">
+    <p class="infotop" id="evasion">Missiles Evaded: 0</p>
+    <p class="infotop" id="highscore">Highscore: 0</p>
+    <details class="infotop">
+      <summary id="dropdown">Keybinds</summary>
+      <div class="keys">
+        <ul id="controldrop">
+          <a>WASD or Arrows for movement</a><br>
+          <a>M for toggling mobile controls</a>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <!--Developer tools, might become togglable in the future-->
+
+  <div id="main">
+      <div class="control">
+        <div id="mainheader" class="dragbox"></div>
+        <a class="button" onclick = "closeWindow()"> </a>
+      </div>
+      <div class="content">
+        <h1>Developer Info</h1>
+        <div id="viewCont"><div style="" id="viewbox"><div id="playerIn"></div></div></div>
+        <div><span>player.velocity</span>= <span class="dataAfter" id="pv">0</span></div>
+        <div><span>player.xCoordinate</span>= <span class="dataAfter" id="px">0</span></div>
+        <div><span>player.yCoordinate</span>= <span class="dataAfter" id="py">0</span></div>
+        <div><span>player.atAngle</span>= <span class="dataAfter" id="pa">0</span></div>
+        <div><span>missile.xCoordinate</span>= <span class="dataAfter" id="mx">0</span></div>
+        <div><span>missile.yCoordinate</span>= <span class="dataAfter"  id="my">0</span></div>
+        <div><span>missile.velocity</span>= <span class="dataAfter" id="mv">0</span></div>
+        <div><span>missile.atAngle</span>= <span class="dataAfter" id="ma">0</span></div>
+      </div>
+      
+    <div id="popup">
+      <div class="content tip" style="background-color: transparent;">You can drag this window around by grabbing and moving the light gray bar on the top
+        <button type="button" class="cancel" onclick="closeTip()">Dismiss Tip</button>
+        <a class="permaDismiss" onclick="confirmPermClose()">Don't show this again</a>
+      </div>
+    </div>
+ </div>
+
+    <canvas style=" background-color: #65cbf3;" id="gameCanvas"></canvas>
+    <!--minimap canvas goes here-->
+    <!--PLEASE DO NOT PUT THESE IN RANDOM DIVS-->
+  
+ <div id="keycontain2">
+    <div class="key bottom" id="keyleft">
+      <div class="arrow">
+        <div class="arrow2"></div>
+        <div class="arrow2 arrow3"></div>
+      </div>
+    </div>
+    <div>
+      <div class="key" id="keyup">
+        <div class="arrow">
+          <div class="arrow2"></div>
+          <div class="arrow2 arrow3"></div>
+        </div>
+      </div>
+      <div class="key" id="keydown">
+        <div class="arrow">
+          <div class="arrow2"></div>
+          <div class="arrow2 arrow3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="key bottom" id="keyright">
+      <div class="arrow">
+        <div class="arrow2"></div>
+        <div class="arrow2 arrow3"></div>
+      </div>
+    </div>
+  </div>
+
+<script src="logic.js"></script>
  
 </body>
  
