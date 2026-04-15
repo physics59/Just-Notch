@@ -68,12 +68,12 @@ span {
   background-color: white;
   color: black;
   font-weight: 800;
-  margin-right: 15px;
   margin-top: 12px;
   text-decoration: none;
 }
 
 .btncontain {
+  gap: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -115,7 +115,6 @@ span {
   bottom: -18px;
   transition-duration: 0.3s;
   color: grey;
-  
 }
 
 #found {
@@ -256,9 +255,6 @@ span {
   100% { transform: translateX(100vw); opacity: 0; }
 }
   
-  
-  
-
 @media only screen and (max-width: 500px) {
   .container {padding: 25px; max-height: 85%;}
   body {margin: 0px 20px;}
