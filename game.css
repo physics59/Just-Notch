@@ -23,7 +23,7 @@ body {
   position: fixed;
   backdrop-filter: blur(5px);
   background: rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(256, 256, 256, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
  
 .infotop {
@@ -38,7 +38,7 @@ body {
   position: absolute;
   width: max-content;
   background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(256, 256, 256, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
   border-radius: 10px;
   transition-duration: 0.3s;
