@@ -13,7 +13,7 @@ let pauseState = true;
 const missionArea = 3600;
 const samCount = 3;
 let img = document.createElement('img');
-img.src = 'cloud-svgrepo-com.svg';
+img.src = 'cloudfloat.png';
 const wind = 0.5;
 let canvasData = {
   xSize: 0,
