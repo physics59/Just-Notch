@@ -23,7 +23,7 @@ body {
   position: fixed;
   backdrop-filter: blur(5px);
   background: rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(256, 256, 256, 0.3);
 }
 
 .infotop {
@@ -38,8 +38,7 @@ body {
   position: absolute;
   width: max-content;
   background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  list-style: none;
+  border: 1px solid rgba(256, 256, 256, 0.3);
   padding: 20px;
   border-radius: 10px;
   transition-duration: 0.3s;
@@ -56,7 +55,10 @@ body {
 
 #dropdown:hover {
   cursor: pointer;
+  color: magenta;
 }
+
+/* Developer tools styling */
 
 h1 {
   font-size: 16px;
@@ -130,18 +132,17 @@ span {
   background-color: var(--maincolor);
   height: 18px;
   width: 72px;
-  border: 0;
   border-radius: 10px;
   position: relative;
   font-weight: 500;
 }
 
 .button::before {
-  content: "Close this window";
+  content: 'Close this window';
   padding: 6px 9px;
   position: absolute;
   left: 0;
-  top: -45px;
+  top: -50px;
   color: white;
   font-weight: 500;
   display: none;
@@ -158,7 +159,7 @@ span {
 
 .button:hover {
   cursor: pointer;
-  background-color: rgb(50, 50, 50);
+  background-color: var(--negcolor);
 }
 
 .toggle-input {
@@ -173,7 +174,7 @@ span {
   font-size: 14px;
   text-align: center;
   font-family: system-ui;
-  padding: 10px 0 0 0;
+  padding: 10px 0 0 0
 }
 
 .cancel {
@@ -234,6 +235,7 @@ canvas {
 
 #minimap {
   position: fixed;
+  /* Stays in place when scrolling */
   bottom: 15px;
   left: 15px;
   background: #404060;
@@ -241,6 +243,8 @@ canvas {
   width: 300px;
   height: 200px;
 }
+
+/* Key styling */
 
 .key {
   width: 50px;
@@ -261,7 +265,7 @@ canvas {
 }
 
 .key::after {
-  content: "";
+  content: '';
   position: absolute;
   top: -9px;
   left: -9px;
@@ -276,6 +280,7 @@ canvas {
   border-color: whitesmoke;
 }
 
+/* Arrow (Within key) styling */
 .arrow {
   margin-left: auto;
   margin-right: auto;
@@ -294,12 +299,17 @@ canvas {
   transform: rotate(140deg);
 }
 
+/* Key container */
 #keycontain2 {
   display: grid;
   grid-template-columns: 50px 50px 50px;
   gap: 17px;
   column-width: 50px;
   scale: 1.7;
+  /*
+ margin-left: ;
+ margin-right: ;
+ */
   height: 107px;
   width: 180px;
   position: fixed;
@@ -307,7 +317,7 @@ canvas {
   left: 52%;
   transform: translateX(-30%) rotate(180deg);
   width: clamp(90vw, 500px);
-  padding: 0;
+  padding: 0px;
   border-radius: 10px;
   box-sizing: border-box;
 }
@@ -319,7 +329,7 @@ canvas {
 #keydown {
   margin-top: 6.5px;
   transform: rotate(90deg);
-  translate: 0 67px;
+  translate: 0px 67px;
 }
 
 #keyup {
@@ -335,4 +345,3 @@ canvas {
   top: 20px;
   left: 20px;
 }
-
