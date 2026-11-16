@@ -152,6 +152,19 @@ function recenter() {
   canvasData.yVelocity = 0;
 }
 
+function updateDevTools() {
+  if (player && missile) {
+    document.getElementById("pv").innerHTML = player.velocity.toFixed(2);
+    document.getElementById("px").innerHTML = Math.round(player.xCoordinate);
+    document.getElementById("py").innerHTML = Math.round(player.yCoordinate);
+    document.getElementById("pa").innerHTML = ((player.atAngle / Math.PI) * 180).toFixed(2);
+    document.getElementById("mv").innerHTML = missile.velocity.toFixed(2);
+    document.getElementById("mx").innerHTML = Math.round(missile.xCoordinate);
+    document.getElementById("my").innerHTML = Math.round(missile.yCoordinate);
+    document.getElementById("ma").innerHTML = ((missile.atAngle / Math.PI) * 180).toFixed(2);
+  }
+}
+
 function retreiveHighScore() {
   try {
     highScore = parseInt(localStorage.getItem("highScore")) || 0;
