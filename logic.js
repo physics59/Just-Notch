@@ -8,7 +8,6 @@ let time = 0;
 let missilesEvaded = 0;
 let highScore = 0;
 let player, missile, objects;
-let tipPreference;
 let pauseState = true;
 const missionArea = 3600;
 const samCount = 3;
